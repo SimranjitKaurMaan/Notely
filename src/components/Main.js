@@ -1,3 +1,5 @@
 export const Main = () => {
-    return <div>Landing Page</div>
+    return <main>
+        
+    </main>
 }
