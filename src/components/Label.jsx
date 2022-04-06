@@ -1,13 +1,12 @@
 import * as React from 'react';
-import {Box,Button, Typography} from '@mui/material'
-import Paper from '@mui/material/Paper';
-import InputBase from '@mui/material/InputBase';
+import {Box,Button, Typography} from '@mui/material';
 import IconButton from '@mui/material/IconButton';
-import SearchIcon from '@mui/icons-material/Search';
 import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
+
 
 import { Note } from './customComponents/Note';
 import { Navbar } from './customComponents/Navbar';
+import { SearchBar } from './customComponents/SearchBar';
 
 export const Label = () => {
     return <>
@@ -20,16 +19,7 @@ export const Label = () => {
     </aside>
         <main>
              <div className="main-wrapper">
-                    <Paper component="form" sx={{ p: '2px 4px', display: 'flex', alignItems: 'center', width: 400 }}>
-                        <InputBase
-                            sx={{ ml: 1, flex: 1 }}
-                            placeholder="Search Notes"
-                            inputProps={{ 'aria-label': 'search notes' }}
-                        />
-                        <IconButton type="submit" sx={{ p: '10px' }} aria-label="search">
-                            <SearchIcon />
-                        </IconButton>
-                    </Paper>
+                   <SearchBar/>
                     <div className="notes-wrapper">
                         <div className="notes-header">
                         <Typography variant="body2" color="text.secondary" textAlign='start' lineHeight='4'>
