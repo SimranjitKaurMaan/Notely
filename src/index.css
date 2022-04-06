@@ -4,7 +4,7 @@
 .wrapper {
   display: grid;
   width: 100%;
-  grid-gap: 20px;
+  grid-gap: 1rem;
   grid-template-columns: 13rem 1fr;
   grid-template-areas:
   "aside main"
@@ -15,14 +15,13 @@
 
 aside {
   margin-top: 4rem;
-  padding: 0 5rem;
+  padding: 0 4rem;
+  margin-right: 4rem;
   grid-area: aside;
   background-color: var(--color-main);
   width: max-content;
-}
-
-aside a {
-  color: var(--color-gray-darker);
+  display: flex;
+  flex-direction: column;
 }
 
 main {

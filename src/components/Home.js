@@ -12,10 +12,10 @@ export const Home = () => {
     return <>
     <div className="wrapper">
     <aside>
-      <Box sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
+      <Box mb={4} sx={{ width: '100%', minWidth: 300, bgcolor: 'background.paper'}}>
         <Navbar/>
-        <Button variant="contained">Create New Note</Button>
       </Box>
+      <Button variant="contained">Create New Note</Button>
     </aside>
         <main>
              <div className="main-wrapper">
