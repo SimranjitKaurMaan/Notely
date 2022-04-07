@@ -3,6 +3,7 @@ import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
+import { NotelyTheme } from '../../styles';
 
 
 export function Header() {
@@ -14,7 +15,7 @@ export function Header() {
             variant="h6"
             noWrap
             component="div"
-            sx={{ mr: 2, display: { xs: 'none', md: 'flex' } }}
+            sx={{...NotelyTheme.header}}
           >
             Notely
           </Typography>

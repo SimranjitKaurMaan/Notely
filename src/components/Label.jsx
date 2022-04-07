@@ -1,20 +1,17 @@
 import * as React from 'react';
-import {Box,Button, Typography} from '@mui/material';
+import {Button, Typography} from '@mui/material';
 import IconButton from '@mui/material/IconButton';
 import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
 
 
-import { Note } from './customComponents/Note';
-import { Navbar } from './customComponents/Navbar';
-import { SearchBar } from './customComponents/SearchBar';
+import { Note, Navbar, SearchBar } from './customComponents';
+import { NotelyTheme } from '../styles';
 
 export const Label = () => {
     return <>
     <div className="wrapper">
     <aside>
-      <Box mb={4} sx={{ width: '100%', minWidth: 300, bgcolor: 'background.paper'}}>
-        <Navbar/>
-      </Box>
+       <Navbar/>
       <Button variant="contained">Create New Note</Button>
     </aside>
         <main>
@@ -25,7 +22,7 @@ export const Label = () => {
                         <Typography variant="body2" color="text.secondary" textAlign='start' lineHeight='4'>
                             LABEL 1
                         </Typography>
-                        <IconButton aria-label="edit note" sx={{marginLeft: 'auto'}}>
+                        <IconButton aria-label="edit note" sx={{...NotelyTheme.notes.headerIconStyle}}>
                             <EditOutlinedIcon/>
                         </IconButton>
                         </div>
@@ -36,7 +33,7 @@ export const Label = () => {
                         <Typography variant="body2" color="text.secondary" textAlign='start' lineHeight='4'>
                             LABEL 2
                         </Typography>
-                        <IconButton aria-label="edit note" sx={{marginLeft: 'auto'}}>
+                        <IconButton aria-label="edit note" sx={{...NotelyTheme.notes.headerIconStyle}}>
                             <EditOutlinedIcon/>
                         </IconButton>
                         </div>
