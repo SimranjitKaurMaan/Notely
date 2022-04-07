@@ -3,6 +3,7 @@ import {Box,Button} from '@mui/material'
 import { Note } from './customComponents/Note';
 import { Navbar } from './customComponents/Navbar';
 import { SearchBar } from './customComponents/SearchBar';
+import { EmptyNote } from './customComponents/EmptyNote';
 
 export const Home = () => {
     return <>
@@ -17,6 +18,7 @@ export const Home = () => {
              <div className="main-wrapper">
                     <SearchBar/>
                     <div className="notes-wrapper">
+                        <EmptyNote/> 
                         <Note/>
                     </div>
             </div>
