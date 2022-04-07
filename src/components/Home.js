@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {Button} from '@mui/material'
-import { Note, Navbar, SearchBar } from './customComponents';
+import { Note, Navbar, SearchBar, EmptyNote } from './customComponents';
 
 export const Home = () => {
     return <>

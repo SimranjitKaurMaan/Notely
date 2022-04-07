@@ -5,11 +5,12 @@ import LabelOutlinedIcon from '@mui/icons-material/LabelOutlined';
 import DeleteOutlinedIcon from '@mui/icons-material/DeleteOutlined';
 import ArchiveOutlinedIcon from '@mui/icons-material/ArchiveOutlined';
 import ColorLensOutlinedIcon from '@mui/icons-material/ColorLensOutlined';
+import { NotelyTheme } from '../../styles';
 
 export function EmptyNote() {
     return (
-        <Card variant="outlined" sx={{maxWidth: 400, mt: 4 }}>
-            <CardHeader sx={{ textAlign: 'start'}}
+        <Card variant="outlined" sx={{...NotelyTheme.card.containerStyle }}>
+            <CardHeader sx={{ ...NotelyTheme.card.headerStyle}}
                 action={
                 <IconButton aria-label="pin note">
                     <PushPinOutlinedIcon/>
@@ -19,14 +20,14 @@ export function EmptyNote() {
       />
         <CardContent sx={{ textAlign: 'start'}}>
             <Typography variant="body2" color="text.secondary">
-               <TextField multiline fullWidth variant="standard" InputProps={{disableUnderline: true, style: {color: 'inherit'}}} placeholder="Take a note..."/>
+               <TextField multiline fullWidth variant="standard" InputProps={{disableUnderline: true, style: {...NotelyTheme.card.textAreaStyle}}} placeholder="Take a note..."/>
             </Typography>
         </CardContent>
         <CardActions>
             <Typography variant="body2">
             Created on 26/10/2021
             </Typography>
-            <IconButton aria-label="change color" sx={{marginLeft: 'auto'}}>
+            <IconButton aria-label="change color" sx={{...NotelyTheme.card.actionStyle}}>
                 <ColorLensOutlinedIcon/>
             </IconButton>
             <IconButton aria-label="label">

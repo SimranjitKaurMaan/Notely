@@ -29,6 +29,9 @@ export const NotelyTheme = {
     contentStyle: {
         textAlign: 'start'
     },
+    textAreaStyle: {
+        color: 'inherit'
+    },
     actionStyle: {
         marginLeft: 'auto'
     }
