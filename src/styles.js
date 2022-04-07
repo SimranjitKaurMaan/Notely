@@ -22,9 +22,12 @@ export const NotelyTheme = {
     containerStyle: {
         maxWidth: 400, 
         mt: 4 
-    },   
+    }, 
     headerStyle: {
         textAlign: 'start'
+    },
+    headerActionStyle: {
+      marginLeft: 'auto'
     },
     contentStyle: {
         textAlign: 'start'
@@ -35,6 +38,13 @@ export const NotelyTheme = {
     actionStyle: {
         marginLeft: 'auto'
     }
+   },
+   editableCard: {
+     titleContainerStyle: {
+        display: 'flex', 
+        justifyContent: 'start', 
+        paddingLeft: '1rem'
+     }
    },
    navBar: {
        containerStyle:{

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Card, CardHeader, CardContent, CardActions, Typography, IconButton, TextField } from "@mui/material";
+import { Card, CardContent, CardActions, Typography, IconButton, TextField } from "@mui/material";
 import PushPinOutlinedIcon from '@mui/icons-material/PushPinOutlined';
 import LabelOutlinedIcon from '@mui/icons-material/LabelOutlined';
 import DeleteOutlinedIcon from '@mui/icons-material/DeleteOutlined';
@@ -10,14 +10,12 @@ import { NotelyTheme } from '../../styles';
 export function EmptyNote() {
     return (
         <Card variant="outlined" sx={{...NotelyTheme.card.containerStyle }}>
-            <CardHeader sx={{ ...NotelyTheme.card.headerStyle}}
-                action={
-                <IconButton aria-label="pin note">
+         <div style={{...NotelyTheme.editableCard.titleContainerStyle}}>   
+            <TextField variant="standard" InputProps={{disableUnderline: true}} placeholder="Title"/>
+            <IconButton aria-label="pin note" sx={{...NotelyTheme.card.actionStyle}}>
                     <PushPinOutlinedIcon/>
-                </IconButton>
-                }
-            title="Empty Note"
-      />
+            </IconButton>
+         </div>  
         <CardContent sx={{ textAlign: 'start'}}>
             <Typography variant="body2" color="text.secondary">
                <TextField multiline fullWidth variant="standard" InputProps={{disableUnderline: true, style: {...NotelyTheme.card.textAreaStyle}}} placeholder="Take a note..."/>
