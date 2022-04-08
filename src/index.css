@@ -1,6 +1,13 @@
 :root {
  --color-main: #F8FEFE;
+ --color-gray-darker: grey;
 }
+
+html, body, #root, #root>div {
+  height: 100%;
+  background-color: var(--color-main);
+}
+
 .wrapper {
   display: grid;
   width: 100%;
@@ -9,8 +16,7 @@
   grid-template-areas:
   "aside main"
   "aside main"
-  "aside main"
-  "aside footer";
+  "aside main";
 }
 
 aside {
@@ -52,4 +58,77 @@ main {
 
 .notes-header {
   display: flex;
+}
+
+
+/* footer */
+footer {
+  background-color: var(--color-main);
+  margin-top: auto;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 1rem;
+  position: fixed;
+  bottom: 0;
+}
+
+.footer-container i {
+  padding: 4rem;
+  color: var(--color-gray-darker);
+}
+
+.footer-text {
+  padding: 0;
+  margin: 0;
+}
+
+.footer-content > * {
+  margin-left: 4rem;
+  margin-right: 4rem;
+}
+
+.footer-heading {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+/* utilities */
+.flex-row-wrap-start {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.flex-row-wrap-center {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.flex-col-wrap-center {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.flex-row-wrap-space-around {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.flex-col-wrap-start {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: center;
 }

@@ -12,7 +12,6 @@ export const Label = () => {
     <div className="wrapper">
     <aside>
        <Navbar/>
-      <Button variant="contained">Create New Note</Button>
     </aside>
         <main>
              <div className="main-wrapper">
