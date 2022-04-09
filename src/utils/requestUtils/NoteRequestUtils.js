@@ -15,6 +15,6 @@ export const fetchNotes = async () => {
 
 export const archiveNoteHandler = async ({...note}) => {
     const url = `${config.apiHost}/notes/archive/`;
-    const response = await postDataWithParams(RequestType.DELETE, url, note._id);
+    const response = await postDataWithParams(RequestType.POST, url, note._id);
     return response.archives;
  }

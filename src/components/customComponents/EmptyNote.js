@@ -12,7 +12,7 @@ import { AddTag } from "./AddTag";
 import { useState } from "react";
 
 export function EmptyNote() {
-    const {note , setNote, archiveNote } = useNote();
+    const {note , setNote } = useNote();
     const [showColorPallete, setShowColorPallete] = useState(false);
     const [showAddTags , setShowAddTags] = useState(false);
 
@@ -37,7 +37,7 @@ export function EmptyNote() {
                     <IconButton aria-label="tag" onClick={() => setShowAddTags(true)}>
                         <LabelOutlinedIcon/>
                     </IconButton>
-                    <IconButton aria-label="archive" onClick={() => {archiveNote(note); setNote({...note, state: 'ARCHIVED'});}}>
+                    <IconButton aria-label="archive" onClick={() => {setNote({...note, state: 'ARCHIVED'});}}>
                         {note.state === 'ARCHIVED' ?  <ArchiveIcon/>: <ArchiveOutlinedIcon/>}
                     </IconButton>
                 </CardActions>
