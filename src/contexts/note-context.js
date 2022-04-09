@@ -15,6 +15,7 @@ export const NoteProvider = ({children}) => {
     const [ notes , setNotes ] = useState([]);
 
     const saveNote = async () => {
+        // eslint-disable-next-line eqeqeq
         if(note == defaultState) return;
         // make API call to the backend to save the note
         console.log("Save this to backend", note);
