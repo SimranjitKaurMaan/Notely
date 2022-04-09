@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { Card, CardContent, CardActions, Typography, IconButton, TextField } from "@mui/material";
 import PushPinOutlinedIcon from '@mui/icons-material/PushPinOutlined';
 import LabelOutlinedIcon from '@mui/icons-material/LabelOutlined';
@@ -9,19 +8,19 @@ import { NotelyTheme } from '../../styles';
 import { useNote } from '../../contexts/note-context';
 
 export function EmptyNote() {
-    const {addNoteTitle, addNoteContent , togglePinned } = useNote();
+    const {note , setNote} = useNote();
 
     return (
         <Card variant="outlined" sx={{...NotelyTheme.card.containerStyle }}>
             <div style={{...NotelyTheme.editableCard.titleContainerStyle}}>   
-                <TextField variant="standard" InputProps={{disableUnderline: true}} placeholder="Title" onChange={(event) => addNoteTitle(event)}/>
-                <IconButton aria-label="pin note" sx={{...NotelyTheme.card.actionStyle}} onClick={() => togglePinned()}>
+                <TextField variant="standard" InputProps={{disableUnderline: true}} placeholder="Title" onChange={(event) => setNote({...note, title: event.target.value})}/>
+                <IconButton aria-label="pin note" sx={{...NotelyTheme.card.actionStyle}} onClick={() => setNote({...note, pinned: !note.pinned})}>
                         <PushPinOutlinedIcon/>
                 </IconButton>
             </div>  
             <CardContent sx={{ textAlign: 'start'}}>
                 <Typography variant="body2" color="text.secondary">
-                <TextField multiline fullWidth variant="standard" InputProps={{disableUnderline: true, style: {...NotelyTheme.card.textAreaStyle}}} placeholder="Take a note..." onChange={(event) => addNoteContent(event)}/>
+                <TextField multiline fullWidth variant="standard" InputProps={{disableUnderline: true, style: {...NotelyTheme.card.textAreaStyle}}} placeholder="Take a note..." onChange={(event) => setNote({...note, content: event.target.value})}/>
                 </Typography>
             </CardContent>
             <CardActions>
