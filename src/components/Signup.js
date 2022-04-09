@@ -33,11 +33,11 @@ export const SignUp = () => {
                         <h2>Signup</h2>
                         <FormControl margin="normal" required fullWidth>
                             <InputLabel htmlFor="email">Email Address</InputLabel>
-                            <Input id="email" name="email" autoComplete="email" autoFocus onChange={(event) => setUserData({...userData, email: event.target.value})}/>
+                            <Input name="email" autoComplete="email" autoFocus onChange={(event) => setUserData({...userData, email: event.target.value})}/>
                         </FormControl>
                         <FormControl margin="normal" required fullWidth>
                             <InputLabel htmlFor="password">Password</InputLabel>
-                            <Input name="password" type="password" id="password" autoComplete="current-password" onChange={(event) => setUserData({...userData, password: event.target.value})}/>
+                            <Input name="password" type="password" onChange={(event) => setUserData({...userData, password: event.target.value})}/>
                         </FormControl>
                         <FormControlLabel value="accepted" control={<Radio />} label="I accept all Terms & Conditions" />
                         <Button variant="contained" onClick={signupHandler}>Create New Account</Button>
