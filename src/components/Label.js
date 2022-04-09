@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {Button, Typography} from '@mui/material';
+import {Typography} from '@mui/material';
 import IconButton from '@mui/material/IconButton';
 import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
 
