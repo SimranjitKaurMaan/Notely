@@ -14,7 +14,9 @@ export const Home = () => {
                         <SearchBar/>
                         <div className="notes-wrapper" onClick={(e) => e.stopPropagation()}>
                             <EmptyNote/>
-                            {notes.map(note => <Note data={note}/>)}
+                        </div>
+                        <div className="notes-wrapper" onClick={(e) => e.stopPropagation()}>
+                         {notes && notes.map(note => <Note data={note}/>)} 
                         </div>
                 </div>
             </main>

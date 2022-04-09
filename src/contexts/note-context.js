@@ -18,7 +18,9 @@ export const NoteProvider = ({children}) => {
 
     const saveNote = async () => {
         // eslint-disable-next-line eqeqeq
-        if(note == defaultState) return;
+        console.log(note);
+        if(JSON.stringify(note)  === JSON.stringify(defaultState)) return;
+        console.log(`Saving...${note}`);
         const updatedNotes = await postNote(note);
         setNotes(updatedNotes);
         setNote(defaultState);
