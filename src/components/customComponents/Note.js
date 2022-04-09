@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { Card, CardHeader, CardContent, CardActions, Typography, IconButton } from "@mui/material";
 import PushPinOutlinedIcon from '@mui/icons-material/PushPinOutlined';
+import PushPinIcon from '@mui/icons-material/PushPin';
 import LabelOutlinedIcon from '@mui/icons-material/LabelOutlined';
 import DeleteOutlinedIcon from '@mui/icons-material/DeleteOutlined';
 import ArchiveOutlinedIcon from '@mui/icons-material/ArchiveOutlined';
@@ -14,7 +15,7 @@ export function Note({...props}) {
             <CardHeader sx={{...NotelyTheme.card.headerStyle}}
                 action={
                 <IconButton aria-label="pin note">
-                    <PushPinOutlinedIcon/>
+                    {data.pinned ? <PushPinIcon/> : <PushPinOutlinedIcon/> }
                 </IconButton>
                 }
             title={data.title}

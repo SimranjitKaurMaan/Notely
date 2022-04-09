@@ -1,5 +1,6 @@
 import { Card, CardContent, CardActions, Typography, IconButton, TextField } from "@mui/material";
 import PushPinOutlinedIcon from '@mui/icons-material/PushPinOutlined';
+import PushPinIcon from '@mui/icons-material/PushPin';
 import LabelOutlinedIcon from '@mui/icons-material/LabelOutlined';
 import DeleteOutlinedIcon from '@mui/icons-material/DeleteOutlined';
 import ArchiveOutlinedIcon from '@mui/icons-material/ArchiveOutlined';
@@ -15,7 +16,7 @@ export function EmptyNote() {
             <div style={{...NotelyTheme.editableCard.titleContainerStyle}}>   
                 <TextField variant="standard" InputProps={{disableUnderline: true}} placeholder="Title" value={note.title} onChange={(event) => setNote({...note, title: event.target.value})}/>
                 <IconButton aria-label="pin note" sx={{...NotelyTheme.card.actionStyle}} onClick={() => setNote({...note, pinned: !note.pinned})}>
-                    <PushPinOutlinedIcon/>
+                    {note.pinned ? <PushPinIcon/> : <PushPinOutlinedIcon/> }
                 </IconButton>
             </div>  
             <CardContent sx={{ textAlign: 'start'}}>
