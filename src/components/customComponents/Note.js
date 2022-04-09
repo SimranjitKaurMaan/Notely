@@ -7,7 +7,8 @@ import ArchiveOutlinedIcon from '@mui/icons-material/ArchiveOutlined';
 import ColorLensOutlinedIcon from '@mui/icons-material/ColorLensOutlined';
 import { NotelyTheme } from '../../styles';
 
-export function Note() {
+export function Note({...props}) {
+    const {data} = props;
     return (
         <Card variant="outlined" sx={{...NotelyTheme.card.containerStyle }}>
             <CardHeader sx={{...NotelyTheme.card.headerStyle}}
@@ -16,16 +17,16 @@ export function Note() {
                     <PushPinOutlinedIcon/>
                 </IconButton>
                 }
-            title="Title of the note"
+            title={data.title}
       />
         <CardContent sx={{ ...NotelyTheme.card.contentStyle}}>
             <Typography variant="body2" color="text.secondary">
-                Body of the note
+                {data.content}
             </Typography>
         </CardContent>
         <CardActions>
             <Typography variant="body2">
-            Created on 26/10/2021
+             Created on 26/10/2021
             </Typography>
             <IconButton aria-label="change color" sx={{...NotelyTheme.card.actionStyle}}>
                 <ColorLensOutlinedIcon/>

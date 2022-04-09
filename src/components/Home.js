@@ -1,7 +1,9 @@
 import * as React from 'react';
-import { Navbar, SearchBar, EmptyNote } from './customComponents';
+import { useNote } from '../contexts/note-context';
+import { Navbar, SearchBar, EmptyNote, Note } from './customComponents';
 
 export const Home = () => {
+    const {notes} = useNote();
     return <>
     <div className="wrapper">
     <aside>
@@ -12,6 +14,7 @@ export const Home = () => {
                     <SearchBar/>
                     <div className="notes-wrapper">
                         <EmptyNote/>
+                        {notes.map(note => <Note data={note}/>)}
                     </div>
             </div>
         </main>

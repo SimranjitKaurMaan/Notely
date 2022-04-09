@@ -13,14 +13,14 @@ export function EmptyNote() {
     return (
         <Card variant="outlined" sx={{...NotelyTheme.card.containerStyle }}>
             <div style={{...NotelyTheme.editableCard.titleContainerStyle}}>   
-                <TextField variant="standard" InputProps={{disableUnderline: true}} placeholder="Title" onChange={(event) => setNote({...note, title: event.target.value})}/>
+                <TextField variant="standard" InputProps={{disableUnderline: true}} placeholder="Title" value={note.title} onChange={(event) => setNote({...note, title: event.target.value})}/>
                 <IconButton aria-label="pin note" sx={{...NotelyTheme.card.actionStyle}} onClick={() => setNote({...note, pinned: !note.pinned})}>
-                        <PushPinOutlinedIcon/>
+                    <PushPinOutlinedIcon/>
                 </IconButton>
             </div>  
             <CardContent sx={{ textAlign: 'start'}}>
                 <Typography variant="body2" color="text.secondary">
-                <TextField multiline fullWidth variant="standard" InputProps={{disableUnderline: true, style: {...NotelyTheme.card.textAreaStyle}}} placeholder="Take a note..." onChange={(event) => setNote({...note, content: event.target.value})}/>
+                    <TextField multiline fullWidth variant="standard" InputProps={{disableUnderline: true, style: {...NotelyTheme.card.textAreaStyle}}} placeholder="Take a note..." value={note.content} onChange={(event) => setNote({...note, content: event.target.value})}/>
                 </Typography>
             </CardContent>
             <CardActions>
