@@ -11,7 +11,7 @@ import { NotelyTheme } from '../../styles';
 export function Note({...props}) {
     const {data} = props;
     return (
-        <Card variant="outlined" sx={{...NotelyTheme.card.containerStyle }}>
+        <Card variant="outlined" sx={{...NotelyTheme.card.containerStyle, bgcolor: `${data.color}` }}>
             <CardHeader sx={{...NotelyTheme.card.headerStyle}}
                 action={
                 <IconButton aria-label="pin note">
@@ -26,6 +26,7 @@ export function Note({...props}) {
             </Typography>
         </CardContent>
         <CardActions>
+           { data.tags.map( tag => <Typography variant="body2" color="text.secondary">{tag}</Typography>)}
             <IconButton aria-label="change color" sx={{...NotelyTheme.card.actionStyle}}>
                 <ColorLensOutlinedIcon/>
             </IconButton>

@@ -11,4 +11,4 @@ export const fetchNotes = async () => {
     const url = `${config.apiHost}/notes`;
     const response = await fetchDataWithToken(RequestType.GET, url);
     return response.notes;
- }
+}

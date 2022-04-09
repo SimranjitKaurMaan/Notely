@@ -57,5 +57,12 @@ export const NotelyTheme = {
        headerIconStyle:{
         marginLeft: 'auto'
        }
+   },
+   colorPallete: {
+       redColor: '#F28A83',
+       yellowColor: '#FFF275',
+       blueColor: '#CAF0F9',
+       greenColor: '#CBFE91',
+       pinkColor: '#FDCEE9'
    }
 }

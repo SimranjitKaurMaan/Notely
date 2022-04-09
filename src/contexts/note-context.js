@@ -9,7 +9,8 @@ export const NoteProvider = ({children}) => {
         content: '',
         pinned: false,
         color: 'default',
-        state: 'CREATED'
+        state: 'CREATED',
+        tags: []
     }
     const [ note , setNote ] = useState(defaultState);
     const [ notes , setNotes ] = useState([]);
