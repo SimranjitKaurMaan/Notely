@@ -25,9 +25,6 @@ export function Note({...props}) {
             </Typography>
         </CardContent>
         <CardActions>
-            <Typography variant="body2">
-             Created on 26/10/2021
-            </Typography>
             <IconButton aria-label="change color" sx={{...NotelyTheme.card.actionStyle}}>
                 <ColorLensOutlinedIcon/>
             </IconButton>
