@@ -1,5 +1,5 @@
 import { Config as config } from "../../Config";
-import { fetchDataWithToken, postDataWithToken, RequestType } from "../../services/APIHandler";
+import { fetchDataWithToken, postDataWithParams, postDataWithToken, RequestType } from "../../services/APIHandler";
 
 export const postNote = async ({...note}) => {
     const url = `${config.apiHost}/notes`;
@@ -12,3 +12,9 @@ export const fetchNotes = async () => {
     const response = await fetchDataWithToken(RequestType.GET, url);
     return response.notes;
 }
+
+export const archiveNoteHandler = async ({...note}) => {
+    const url = `${config.apiHost}/notes/archive/`;
+    const response = await postDataWithParams(RequestType.DELETE, url, note._id);
+    return response.archives;
+ }

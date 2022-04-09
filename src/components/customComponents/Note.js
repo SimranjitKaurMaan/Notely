@@ -4,6 +4,7 @@ import PushPinOutlinedIcon from '@mui/icons-material/PushPinOutlined';
 import PushPinIcon from '@mui/icons-material/PushPin';
 import LabelOutlinedIcon from '@mui/icons-material/LabelOutlined';
 import DeleteOutlinedIcon from '@mui/icons-material/DeleteOutlined';
+import ArchiveIcon from '@mui/icons-material/Archive';
 import ArchiveOutlinedIcon from '@mui/icons-material/ArchiveOutlined';
 import ColorLensOutlinedIcon from '@mui/icons-material/ColorLensOutlined';
 import { NotelyTheme } from '../../styles';
@@ -34,7 +35,7 @@ export function Note({...props}) {
                 <LabelOutlinedIcon/>
             </IconButton>
             <IconButton aria-label="archive">
-                <ArchiveOutlinedIcon/>
+              {data.state === 'ARCHIVED' ? <ArchiveIcon/> : <ArchiveOutlinedIcon/>}
             </IconButton>
             <IconButton aria-label="delete">
                 <DeleteOutlinedIcon/>

@@ -1,5 +1,5 @@
 import { createContext, useContext, useState } from "react";
-import { postNote } from "../utils/requestUtils/NoteRequestUtils";
+import { postNote , archiveNoteHandler} from "../utils/requestUtils/NoteRequestUtils";
 
 const NoteContext = createContext();
 
@@ -14,6 +14,7 @@ export const NoteProvider = ({children}) => {
     }
     const [ note , setNote ] = useState(defaultState);
     const [ notes , setNotes ] = useState([]);
+    const [ archivedNotes, setArchivedNotes ] = useState([]);
 
     const saveNote = async () => {
         // eslint-disable-next-line eqeqeq
@@ -23,7 +24,12 @@ export const NoteProvider = ({children}) => {
         setNote(defaultState);
     }
 
-    return ( <NoteContext.Provider value={{note , setNote,  saveNote, notes }}>
+    const archiveNote = async ({...note}) => {
+         const archivedNotes = await archiveNoteHandler(note);
+         setArchivedNotes(archivedNotes);
+    }
+
+    return ( <NoteContext.Provider value={{note , setNote,  saveNote, notes, archiveNote, archivedNotes }}>
         {children}
     </NoteContext.Provider> );
 }
