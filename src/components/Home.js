@@ -19,7 +19,7 @@ export const Home = () => {
             <main onClick={() => {saveNote()}}>
                 <div className="main-wrapper">
                         <SearchBar/>
-                        <div className="notes-wrapper" style= {{backgroundColor: 'tomato'}} onClick={(e) => e.stopPropagation()}>
+                        <div className="notes-wrapper" onClick={(e) => e.stopPropagation()}>
                             <EmptyNote/>
                         </div>
                         <div className="notes-wrapper">
