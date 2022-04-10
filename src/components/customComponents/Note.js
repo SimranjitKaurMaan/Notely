@@ -45,7 +45,7 @@ export function Note({...props}) {
             <IconButton aria-label="archive">
               {note.state === 'ARCHIVED' ? <ArchiveIcon/> : <ArchiveOutlinedIcon/>}
             </IconButton>
-            <IconButton aria-label="delete" onClick={() => deleteNote(note)}>
+            <IconButton aria-label="delete" onClick={(event) => {deleteNote(note); event.stopPropagation()}}>
             {note.state === 'DELETED' ? <DeleteIcon/> : <DeleteOutlinedIcon/>}
             </IconButton>
         </CardActions>
