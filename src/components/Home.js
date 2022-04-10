@@ -14,7 +14,7 @@ export const Home = () => {
                     <SearchBar/>
                     <div className="notes-wrapper">
                         <EmptyNote/>
-                        {notes.map(note => <Note data={note}/>)}
+                        {notes.map(note => <Note note={note}/>)}
                     </div>
             </div>
         </main>
