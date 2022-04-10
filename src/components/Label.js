@@ -8,9 +8,13 @@ import { Note, Navbar, SearchBar } from './customComponents';
 import { NotelyTheme } from '../styles';
 import { useNote } from '../contexts/note-context';
 
+const getLabels = (notes) => {
+    return notes.reduce((acculumator,note) => [...acculumator, ...note.tags] ,[])
+}
+
 export const Label = () => {
     const {notes} = useNote();
-    const labels = ['Work','Health','Creativity','Teams','Exercise','Chores'];
+    const labels = [...new Set(getLabels(notes))];
     return <>
     <div className="wrapper">
         <aside>
@@ -20,7 +24,7 @@ export const Label = () => {
              <div className="main-wrapper">
                    <SearchBar/>
                     <div className="notes-wrapper">
-                       {labels.map(label => <>
+                       {labels && labels.map(label => <>
                             <div className="notes-header">
                                 <Typography variant="body2" color="text.secondary" textAlign='start' lineHeight='4'>
                                     {label}
@@ -29,7 +33,7 @@ export const Label = () => {
                                     <EditOutlinedIcon/>
                                 </IconButton>
                             </div>
-                            {notes.map(note => <Note note={note}/>)}
+                            {notes && notes.map(note => note.tags.includes(label)? <Note note={note}/>: null)}
                         </>)
                        }
                     </div>

@@ -25,7 +25,7 @@ export function Navbar() {
           <ListItemIcon>
             <LabelOutlinedIcon />
           </ListItemIcon>
-          <Link to="/labels"><ListItemText primary="Labels" /></Link>
+          <Link to="/label"><ListItemText primary="Labels" /></Link>
         </ListItemButton>
       </ListItem>
       <ListItem disablePadding>
