@@ -8,9 +8,12 @@ import ArchiveIcon from '@mui/icons-material/Archive';
 import ArchiveOutlinedIcon from '@mui/icons-material/ArchiveOutlined';
 import ColorLensOutlinedIcon from '@mui/icons-material/ColorLensOutlined';
 import { NotelyTheme } from '../../styles';
+import { useNote } from '../../contexts/note-context';
 
 export function Note({...props}) {
     const {note} = props;
+    const {deleteNote} = useNote();
+
     return (
         <Card variant="outlined" sx={{...NotelyTheme.card.containerStyle, bgcolor: `${note.color}` }}>
             <CardHeader sx={{...NotelyTheme.card.headerStyle}}
@@ -37,7 +40,7 @@ export function Note({...props}) {
             <IconButton aria-label="archive">
               {note.state === 'ARCHIVED' ? <ArchiveIcon/> : <ArchiveOutlinedIcon/>}
             </IconButton>
-            <IconButton aria-label="delete">
+            <IconButton aria-label="delete" onClick={() => deleteNote(note)}>
                 <DeleteOutlinedIcon/>
             </IconButton>
         </CardActions>

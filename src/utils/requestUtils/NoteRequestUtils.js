@@ -18,3 +18,9 @@ export const archiveNoteHandler = async ({...note}) => {
     const response = await postDataWithParams(RequestType.POST, url, note._id);
     return response.archives;
  }
+
+ export const deleteNoteHandler = async ({...note}) => {
+    const url = `${config.apiHost}/notes`;
+    const response = await postDataWithParams(RequestType.DELETE, url, note._id);
+    return response.notes;
+ } 

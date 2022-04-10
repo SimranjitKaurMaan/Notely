@@ -1,5 +1,5 @@
 import { createContext, useContext, useState } from "react";
-import { postNote , archiveNoteHandler} from "../utils/requestUtils/NoteRequestUtils";
+import { postNote , archiveNoteHandler, deleteNoteHandler} from "../utils/requestUtils/NoteRequestUtils";
 
 const NoteContext = createContext();
 
@@ -31,7 +31,12 @@ export const NoteProvider = ({children}) => {
          setArchivedNotes(archivedNotes);
     }
 
-    return ( <NoteContext.Provider value={{note , setNote,  saveNote, notes, archiveNote, archivedNotes }}>
+    const deleteNote = async ({...note}) => {
+        const updatedNotes = await deleteNoteHandler(note)
+        setNotes(updatedNotes);
+    }
+
+    return ( <NoteContext.Provider value={{note , setNote,  saveNote, notes, archiveNote, archivedNotes, deleteNote}}>
         {children}
     </NoteContext.Provider> );
 }

@@ -15,7 +15,7 @@ export const Home = () => {
                         <div className="notes-wrapper" onClick={(e) => e.stopPropagation()}>
                             <EmptyNote/>
                         </div>
-                        <div className="notes-wrapper" onClick={(e) => e.stopPropagation()}>
+                        <div className="notes-wrapper">
                          {notes && notes.map(note => <Note note={note}/>)} 
                         </div>
                 </div>
