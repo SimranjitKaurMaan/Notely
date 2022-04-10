@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import {Link} from 'react-router-dom';
 import { useNavigate } from 'react-router';
 import { signupUser } from '../utils/requestUtils/AuthRequestUtils';
 import { FormControl, InputLabel, Input, Radio, FormControlLabel, Button } from '@mui/material';
@@ -48,9 +47,8 @@ export const SignUp = () => {
                             <Input name="password" type="password" onChange={(event) => handleFormDetailsChange(event)}/>
                         </FormControl>
                         <FormControlLabel value="accepted" control={<Radio />} label="I accept all Terms & Conditions" />
-                        <Button variant="contained" onClick={signupHandler}>Create New Account</Button>
-                        <Button variant="contained" onClick={testUserSignupHandler}>Create Test Account</Button>
-                        <Link to="/login">Already have an account<i className="fa fa-thin fa-chevron-right"></i></Link>
+                        <Button variant="contained" style={{margin: 8}} onClick={signupHandler}>Create New Account</Button>
+                        <Button variant="contained" style={{margin: 8}} onClick={testUserSignupHandler}>Create Test Account</Button>
                     </div>
                 </div>
             </FormControl>

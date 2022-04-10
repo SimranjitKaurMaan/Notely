@@ -1,4 +1,4 @@
-import { applyFilterAndSorts, handleFilterByLabels, handleSortByDate } from "./FilterUtils";
+import { handleFilterByLabels, handleSortByDate } from "./FilterUtils";
 
 export const filterReducer = (state, action) => {
     switch(action.type) {
