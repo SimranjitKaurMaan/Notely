@@ -12,44 +12,44 @@ export function Navbar() {
     return ( <Box mb={4} sx={{...NotelyTheme.navBar.containerStyle}}>
     <nav aria-label="main menu">
     <List>
-      <ListItem disablePadding>
-        <ListItemButton>
+      <ListItem button component={Link} to="/" disablePadding>
+      <ListItemButton>
           <ListItemIcon>
             <HomeOutlinedIcon />
           </ListItemIcon>
-          <Link to="/"><ListItemText primary="Home" /></Link>
+          <ListItemText primary="Home" />
         </ListItemButton>
       </ListItem>
-      <ListItem disablePadding>
-        <ListItemButton>
+      <ListItem button component={Link} to="/label" disablePadding>
+      <ListItemButton>
           <ListItemIcon>
             <LabelOutlinedIcon />
           </ListItemIcon>
-          <Link to="/label"><ListItemText primary="Labels" /></Link>
+          <ListItemText primary="Label" />
         </ListItemButton>
       </ListItem>
-      <ListItem disablePadding>
-        <ListItemButton>
+      <ListItem button component={Link} to="/archive" disablePadding>
+      <ListItemButton>
           <ListItemIcon>
             <ArchiveOutlinedIcon />
           </ListItemIcon>
-          <Link to="/archive"><ListItemText primary="Archive" /></Link>
+          <ListItemText primary="Archive" />
         </ListItemButton>
       </ListItem>
-      <ListItem disablePadding>
-        <ListItemButton>
+      <ListItem button component={Link} to="/trash" disablePadding>
+      <ListItemButton>
           <ListItemIcon>
             <DeleteOutlinedIcon />
           </ListItemIcon>
-          <Link to="/trash"><ListItemText primary="Trash" /></Link>
+          <ListItemText primary="Trash" />
         </ListItemButton>
       </ListItem>
-      <ListItem disablePadding>
-        <ListItemButton>
+      <ListItem button component={Link} to="/signup" disablePadding>
+      <ListItemButton>
           <ListItemIcon>
             <AccountCircleOutlinedIcon />
           </ListItemIcon>
-          <Link to="/signup"><ListItemText primary="Profile" /></Link>
+          <ListItemText primary="Profile" />
         </ListItemButton>
       </ListItem>
     </List>
