@@ -1,32 +1,32 @@
 import * as React from 'react';
 import { Card, CardHeader, CardContent, CardActions, Typography, IconButton } from "@mui/material";
 import PushPinOutlinedIcon from '@mui/icons-material/PushPinOutlined';
+import PushPinIcon from '@mui/icons-material/PushPin';
 import LabelOutlinedIcon from '@mui/icons-material/LabelOutlined';
 import DeleteOutlinedIcon from '@mui/icons-material/DeleteOutlined';
 import ArchiveOutlinedIcon from '@mui/icons-material/ArchiveOutlined';
 import ColorLensOutlinedIcon from '@mui/icons-material/ColorLensOutlined';
 import { NotelyTheme } from '../../styles';
 
-export function Note() {
+export function Note({...props}) {
+    const {note} = props;
     return (
-        <Card variant="outlined" sx={{...NotelyTheme.card.containerStyle }}>
+        <Card variant="outlined" sx={{...NotelyTheme.card.containerStyle, bgcolor: `${note.color}` }}>
             <CardHeader sx={{...NotelyTheme.card.headerStyle}}
                 action={
                 <IconButton aria-label="pin note">
-                    <PushPinOutlinedIcon/>
+                    {note.pinned ? <PushPinIcon/> : <PushPinOutlinedIcon/> }
                 </IconButton>
                 }
-            title="Title of the note"
+            title={note.title}
       />
         <CardContent sx={{ ...NotelyTheme.card.contentStyle}}>
             <Typography variant="body2" color="text.secondary">
-                Body of the note
+                {note.content}
             </Typography>
         </CardContent>
         <CardActions>
-            <Typography variant="body2">
-            Created on 26/10/2021
-            </Typography>
+           { note.tags.map( tag => <Typography variant="body2" color="text.secondary">{tag}</Typography>)}
             <IconButton aria-label="change color" sx={{...NotelyTheme.card.actionStyle}}>
                 <ColorLensOutlinedIcon/>
             </IconButton>

@@ -9,6 +9,8 @@
     "@mui/icons-material": "^5.5.1",
     "@mui/material": "^5.5.3",
     "dayjs": "^1.11.0",
+    "dotenv": "^16.0.0",
+    "jsonwebtoken": "^8.5.1",
     "jwt-decode": "^3.1.2",
     "jwt-encode": "^1.0.1",
     "miragejs": "^0.1.43",

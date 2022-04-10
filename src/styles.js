@@ -22,16 +22,29 @@ export const NotelyTheme = {
     containerStyle: {
         maxWidth: 400, 
         mt: 4 
-    },   
+    }, 
     headerStyle: {
         textAlign: 'start'
+    },
+    headerActionStyle: {
+      marginLeft: 'auto'
     },
     contentStyle: {
         textAlign: 'start'
     },
+    textAreaStyle: {
+        color: 'inherit'
+    },
     actionStyle: {
         marginLeft: 'auto'
     }
+   },
+   editableCard: {
+     titleContainerStyle: {
+        display: 'flex', 
+        justifyContent: 'start', 
+        paddingLeft: '1rem'
+     }
    },
    navBar: {
        containerStyle:{
@@ -44,5 +57,12 @@ export const NotelyTheme = {
        headerIconStyle:{
         marginLeft: 'auto'
        }
+   },
+   colorPallete: {
+       redColor: '#F28A83',
+       yellowColor: '#FFF275',
+       blueColor: '#CAF0F9',
+       greenColor: '#CBFE91',
+       pinkColor: '#FDCEE9'
    }
 }

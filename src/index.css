@@ -1,6 +1,52 @@
 :root {
  --color-main: #F8FEFE;
+ --color-gray-darker: grey;
+
+ /* Spacings */
+ --space-xs: 0.5rem;
+ --space-sm: 1rem;
+ --space-md: 1.5rem;
+ --space-lg: 2rem;
+ --space-xlg: 2.5rem;
+
+ /* Font-Weight */
+  --fw-light: 300; 
+  --fw-normal: 400;
+  --fw-bold: 700;
+
+  /* Font-Size */
+  --fs-xs: 0.5rem;
+  --fs-sm: 1rem;
+  --fs-base: 1.5rem;
+  --fs-lg: 2rem;
+  --fs-xl: 3rem;
+  
+  /* Line-Height */
+  --lh-xs: 1rem;
+  --lh-sm: 1.5rem;
+  --lh-base: 2rem;
+  --lh-lg: 2.5rem;
+  --lh-xl: 4rem;
+
+  /* Border-Radius */
+  --br-sm: 0.25rem;
+  --br-base: 0.625rem;
+  --br-lg: 1rem;
+  --br-full: 999px;
+
+  /* Border-Width */
+  --bw-xs: 0.25px;
+  --bw-sm: 0.5px;
+  --bw-base: 1px;
+  --bw-lg: 2px;
+  --bw-xl: 4px;
 }
+
+html, body, #root, #root>div {
+  height: 100%;
+  background-color: var(--color-main);
+}
+
 .wrapper {
   display: grid;
   width: 100%;
@@ -9,8 +55,7 @@
   grid-template-areas:
   "aside main"
   "aside main"
-  "aside main"
-  "aside footer";
+  "aside main";
 }
 
 aside {
@@ -52,4 +97,90 @@ main {
 
 .notes-header {
   display: flex;
+}
+
+
+/* footer */
+footer {
+  background-color: var(--color-main);
+  margin-top: auto;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 1rem;
+}
+
+.footer-container i {
+  padding: 4rem;
+  color: var(--color-gray-darker);
+}
+
+.footer-text {
+  padding: 0;
+  margin: 0;
+}
+
+.footer-content > * {
+  margin-left: 4rem;
+  margin-right: 4rem;
+}
+
+.footer-heading {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+/* utilities */
+.flex-row-wrap-start {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.flex-row-wrap-center {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.flex-col-wrap-center {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.flex-row-wrap-space-around {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.flex-col-wrap-start {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+/* Button */
+.btn {
+  font-weight: var(--fw-bold);
+  font-size: var(--fs-sm);
+  border: none;
+  padding: var(--space-sm);
+  margin: var(--space-xs);
+  border-radius: var(--br-base);
+  box-shadow: 0 1px 2px var(--color-gray-darker);
+}
+
+.btn-round {
+  border-radius: var(--br-full);
 }
