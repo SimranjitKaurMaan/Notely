@@ -1,5 +1,5 @@
 import { createContext, useContext, useState } from "react";
-import { postNote , archiveNoteHandler, deleteNoteHandler} from "../utils/requestUtils/NoteRequestUtils";
+import { postNote , archiveNoteHandler, deleteNoteHandler, updateNote} from "../utils/requestUtils/NoteRequestUtils";
 
 const NoteContext = createContext();
 
@@ -15,13 +15,13 @@ export const NoteProvider = ({children}) => {
     const [ note , setNote ] = useState(defaultState);
     const [ notes , setNotes ] = useState([]);
     const [deletedNotes, setDeletedNotes ] = useState([]);
-
+    
     const saveNote = async () => {
         // eslint-disable-next-line eqeqeq
         console.log(note);
         if(JSON.stringify(note)  === JSON.stringify(defaultState)) return;
         console.log(`Saving...${note}`);
-        const updatedNotes = await postNote(note);
+        const updatedNotes = note._id ? await updateNote(note): await postNote(note);
         console.log(`Saved...${note}`);
         setNotes(updatedNotes);
         setNote(defaultState);

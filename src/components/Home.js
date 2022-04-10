@@ -3,17 +3,17 @@ import { useNote } from '../contexts/note-context';
 import { Navbar, SearchBar, EmptyNote, Note } from './customComponents';
 
 export const Home = () => {
-    const {notes, saveNote} = useNote();
+    const {notes, saveNote } = useNote();
     const filteredNotes = notes.filter(note => note.state !== 'DELETED');
     return <>
         <div className="wrapper">
         <aside>
         <Navbar/>
         </aside>
-            <main onClick={() => saveNote()}>
+            <main onClick={() => {saveNote()}}>
                 <div className="main-wrapper">
                         <SearchBar/>
-                        <div className="notes-wrapper" onClick={(e) => e.stopPropagation()}>
+                        <div className="notes-wrapper" style= {{backgroundColor: 'tomato'}} onClick={(e) => e.stopPropagation()}>
                             <EmptyNote/>
                         </div>
                         <div className="notes-wrapper">

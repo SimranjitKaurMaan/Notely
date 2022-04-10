@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useState } from 'react';
 import { Card, CardHeader, CardContent, CardActions, Typography, IconButton } from "@mui/material";
 import PushPinOutlinedIcon from '@mui/icons-material/PushPinOutlined';
 import PushPinIcon from '@mui/icons-material/PushPin';
@@ -13,10 +14,9 @@ import { useNote } from '../../contexts/note-context';
 
 export function Note({...props}) {
     const {note} = props;
-    const {deleteNote} = useNote();
-
-    return (
-        <Card variant="outlined" sx={{...NotelyTheme.card.containerStyle, bgcolor: `${note.color}` }}>
+    const {deleteNote, setNote } = useNote();
+    return (<>
+        <Card variant="outlined" sx={{...NotelyTheme.card.containerStyle, bgcolor: `${note.color}` }} onClick={() => setNote(note)}>
             <CardHeader sx={{...NotelyTheme.card.headerStyle}}
                 action={
                 <IconButton aria-label="pin note">
@@ -46,5 +46,6 @@ export function Note({...props}) {
             </IconButton>
         </CardActions>
         </Card>
+        </>
     );
   }
