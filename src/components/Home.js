@@ -4,7 +4,7 @@ import { Navbar, SearchBar, EmptyNote, Note } from './customComponents';
 
 export const Home = () => {
     const {notes, saveNote } = useNote();
-    const filteredNotes = notes.filter(note => note.state !== 'DELETED');
+    const filteredNotes = notes && notes.filter(note => note.state !== 'DELETED');
     return <>
         <div className="wrapper">
         <aside>
