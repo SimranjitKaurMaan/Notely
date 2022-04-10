@@ -35,7 +35,7 @@ export function Note({...props}) {
                 <LabelOutlinedIcon/>
             </IconButton>
             <IconButton aria-label="archive">
-              {data.state === 'ARCHIVED' ? <ArchiveIcon/> : <ArchiveOutlinedIcon/>}
+              {note.state === 'ARCHIVED' ? <ArchiveIcon/> : <ArchiveOutlinedIcon/>}
             </IconButton>
             <IconButton aria-label="delete">
                 <DeleteOutlinedIcon/>
