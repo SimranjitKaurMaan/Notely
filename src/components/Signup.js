@@ -13,7 +13,7 @@ export const SignUp = () => {
         const response = await signupUser(userData);
         console.log(response);
         document.cookie = "token=" + response.encodedToken;
-        navigate('/login');
+        navigate('/');
     }
     const testUserSignupHandler =  async (event) => {
         event.preventDefault();

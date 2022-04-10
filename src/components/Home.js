@@ -4,6 +4,7 @@ import { Navbar, SearchBar, EmptyNote, Note } from './customComponents';
 
 export const Home = () => {
     const {notes, saveNote} = useNote();
+    const filteredNotes = notes.filter(note => note.state !== 'DELETED');
     return <>
         <div className="wrapper">
         <aside>
@@ -16,7 +17,7 @@ export const Home = () => {
                             <EmptyNote/>
                         </div>
                         <div className="notes-wrapper">
-                         {notes && notes.map(note => <Note note={note}/>)} 
+                         {filteredNotes && filteredNotes.map(note => <Note note={note}/>)} 
                         </div>
                 </div>
             </main>

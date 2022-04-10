@@ -14,7 +14,6 @@ export const NoteProvider = ({children}) => {
     }
     const [ note , setNote ] = useState(defaultState);
     const [ notes , setNotes ] = useState([]);
-    const [archivedNotes, setArchivedNotes] = useState([]);
     const [deletedNotes, setDeletedNotes ] = useState([]);
 
     const saveNote = async () => {
@@ -30,18 +29,18 @@ export const NoteProvider = ({children}) => {
 
     const archiveNote = async ({...note}) => {
          const updatedNotes = await archiveNoteHandler(note);
-         setArchivedNotes(archivedNotes => [...archivedNotes, note]);
-         console.log(`Archived Notes: ${archivedNotes}`)
+         note = {...note , state: note.state='ARCHIVED'};
          setNotes(updatedNotes);
     }
 
     const deleteNote = async ({...note}) => {
         const updatedNotes = await deleteNoteHandler(note);
+        note = {...note , state: note.state='DELETED'};
         setDeletedNotes(deletedNotes => [...deletedNotes, note]);
         setNotes(updatedNotes);
     }
 
-    return ( <NoteContext.Provider value={{note , setNote,  saveNote, notes, archiveNote, archivedNotes, deleteNote, deletedNotes}}>
+    return ( <NoteContext.Provider value={{note , setNote,  saveNote, notes, archiveNote, deleteNote, deletedNotes}}>
         {children}
     </NoteContext.Provider> );
 }

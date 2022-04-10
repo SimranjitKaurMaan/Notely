@@ -3,6 +3,7 @@ import { Card, CardHeader, CardContent, CardActions, Typography, IconButton } fr
 import PushPinOutlinedIcon from '@mui/icons-material/PushPinOutlined';
 import PushPinIcon from '@mui/icons-material/PushPin';
 import LabelOutlinedIcon from '@mui/icons-material/LabelOutlined';
+import DeleteIcon from '@mui/icons-material/Delete';
 import DeleteOutlinedIcon from '@mui/icons-material/DeleteOutlined';
 import ArchiveIcon from '@mui/icons-material/Archive';
 import ArchiveOutlinedIcon from '@mui/icons-material/ArchiveOutlined';
@@ -41,7 +42,7 @@ export function Note({...props}) {
               {note.state === 'ARCHIVED' ? <ArchiveIcon/> : <ArchiveOutlinedIcon/>}
             </IconButton>
             <IconButton aria-label="delete" onClick={() => deleteNote(note)}>
-                <DeleteOutlinedIcon/>
+            {note.state === 'DELETED' ? <DeleteIcon/> : <DeleteOutlinedIcon/>}
             </IconButton>
         </CardActions>
         </Card>
