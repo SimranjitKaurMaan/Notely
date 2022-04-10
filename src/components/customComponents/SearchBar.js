@@ -4,9 +4,13 @@ import IconButton from '@mui/material/IconButton';
 import SearchIcon from '@mui/icons-material/Search';
 import MenuIcon from '@mui/icons-material/Menu';
 import { NotelyTheme } from '../../styles';
+import { SortFilterDialog } from './SortFiterDialog';
+import { useState } from 'react';
 export const SearchBar = () => {
-    return (<Paper component="form" sx={{...NotelyTheme.searchBar.containerStyle}}>
-                <IconButton sx={{ ...NotelyTheme.searchBar.iconStyle }} aria-label="menu">
+    const [openDialog , setOpenDialog] = useState(false);
+    return (<>
+    <Paper component="form" sx={{...NotelyTheme.searchBar.containerStyle}}>
+                <IconButton sx={{ ...NotelyTheme.searchBar.iconStyle }} aria-label="menu" onClick={() => setOpenDialog(true)}>
                     <MenuIcon />
                 </IconButton>
                 <InputBase
@@ -18,5 +22,7 @@ export const SearchBar = () => {
                     <SearchIcon />
                 </IconButton>
         </Paper>
+        <SortFilterDialog openDialog={openDialog} setOpenDialog={setOpenDialog}/>
+        </>
     )
 }
