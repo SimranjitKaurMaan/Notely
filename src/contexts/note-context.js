@@ -14,7 +14,8 @@ export const NoteProvider = ({children}) => {
     }
     const [ note , setNote ] = useState(defaultState);
     const [ notes , setNotes ] = useState([]);
-    const [ archivedNotes, setArchivedNotes ] = useState([]);
+    const [archivedNotes, setArchivedNotes] = useState([]);
+    const [deletedNotes, setDeletedNotes ] = useState([]);
 
     const saveNote = async () => {
         // eslint-disable-next-line eqeqeq
@@ -32,11 +33,12 @@ export const NoteProvider = ({children}) => {
     }
 
     const deleteNote = async ({...note}) => {
-        const updatedNotes = await deleteNoteHandler(note)
+        const updatedNotes = await deleteNoteHandler(note);
+        setDeletedNotes(deletedNotes => [...deletedNotes, note]);
         setNotes(updatedNotes);
     }
 
-    return ( <NoteContext.Provider value={{note , setNote,  saveNote, notes, archiveNote, archivedNotes, deleteNote}}>
+    return ( <NoteContext.Provider value={{note , setNote,  saveNote, notes, archiveNote, archivedNotes, deleteNote, deletedNotes}}>
         {children}
     </NoteContext.Provider> );
 }

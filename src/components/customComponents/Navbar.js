@@ -1,3 +1,5 @@
+import {Link} from 'react-router-dom';
+
 import { Box, ListItem, List, ListItemButton, ListItemIcon, ListItemText} from "@mui/material";
 import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
 import LabelOutlinedIcon from '@mui/icons-material/LabelOutlined';
@@ -15,7 +17,7 @@ export function Navbar() {
           <ListItemIcon>
             <HomeOutlinedIcon />
           </ListItemIcon>
-          <ListItemText primary="Home" />
+          <Link to="/"><ListItemText primary="Home" /></Link>
         </ListItemButton>
       </ListItem>
       <ListItem disablePadding>
@@ -23,7 +25,7 @@ export function Navbar() {
           <ListItemIcon>
             <LabelOutlinedIcon />
           </ListItemIcon>
-          <ListItemText primary="Labels" />
+          <Link to="/labels"><ListItemText primary="Labels" /></Link>
         </ListItemButton>
       </ListItem>
       <ListItem disablePadding>
@@ -31,7 +33,7 @@ export function Navbar() {
           <ListItemIcon>
             <ArchiveOutlinedIcon />
           </ListItemIcon>
-          <ListItemText primary="Archive" />
+          <Link to="/archive"><ListItemText primary="Archive" /></Link>
         </ListItemButton>
       </ListItem>
       <ListItem disablePadding>
@@ -39,7 +41,7 @@ export function Navbar() {
           <ListItemIcon>
             <DeleteOutlinedIcon />
           </ListItemIcon>
-          <ListItemText primary="Trash" />
+          <Link to="/trash"><ListItemText primary="Trash" /></Link>
         </ListItemButton>
       </ListItem>
       <ListItem disablePadding>
@@ -47,7 +49,7 @@ export function Navbar() {
           <ListItemIcon>
             <AccountCircleOutlinedIcon />
           </ListItemIcon>
-          <ListItemText primary="Profile" />
+          <Link to="/signup"><ListItemText primary="Profile" /></Link>
         </ListItemButton>
       </ListItem>
     </List>

@@ -18,7 +18,7 @@ export const SignUp = () => {
     const testUserSignupHandler =  async (event) => {
         event.preventDefault();
         setUserData({email:'test',password:'test'});
-        const response = await signupUser(userData);
+        const response = await signupUser({email:'test',password:'test'});
         console.log(response);
         document.cookie = "token=" + response.encodedToken;
         navigate('/');
