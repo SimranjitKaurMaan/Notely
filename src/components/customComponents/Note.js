@@ -10,24 +10,24 @@ import ColorLensOutlinedIcon from '@mui/icons-material/ColorLensOutlined';
 import { NotelyTheme } from '../../styles';
 
 export function Note({...props}) {
-    const {data} = props;
+    const {note} = props;
     return (
-        <Card variant="outlined" sx={{...NotelyTheme.card.containerStyle, bgcolor: `${data.color}` }}>
+        <Card variant="outlined" sx={{...NotelyTheme.card.containerStyle, bgcolor: `${note.color}` }}>
             <CardHeader sx={{...NotelyTheme.card.headerStyle}}
                 action={
                 <IconButton aria-label="pin note">
-                    {data.pinned ? <PushPinIcon/> : <PushPinOutlinedIcon/> }
+                    {note.pinned ? <PushPinIcon/> : <PushPinOutlinedIcon/> }
                 </IconButton>
                 }
-            title={data.title}
+            title={note.title}
       />
         <CardContent sx={{ ...NotelyTheme.card.contentStyle}}>
             <Typography variant="body2" color="text.secondary">
-                {data.content}
+                {note.content}
             </Typography>
         </CardContent>
         <CardActions>
-           { data.tags.map( tag => <Typography variant="body2" color="text.secondary">{tag}</Typography>)}
+           { note.tags.map( tag => <Typography variant="body2" color="text.secondary">{tag}</Typography>)}
             <IconButton aria-label="change color" sx={{...NotelyTheme.card.actionStyle}}>
                 <ColorLensOutlinedIcon/>
             </IconButton>

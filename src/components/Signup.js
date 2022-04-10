@@ -23,6 +23,14 @@ export const SignUp = () => {
         document.cookie = "token=" + response.encodedToken;
         navigate('/');
     }
+  
+    const handleFormDetailsChange = (event) => {
+        const inputName = event.target.name;
+        const inputValue = event.target.value;
+        setUserData({...userData, [inputName]:inputValue});
+    }
+
+
     return (<>
     <main>
     <div className="main-section">
@@ -33,11 +41,11 @@ export const SignUp = () => {
                         <h2>Signup</h2>
                         <FormControl margin="normal" required fullWidth>
                             <InputLabel htmlFor="email">Email Address</InputLabel>
-                            <Input name="email" autoComplete="email" autoFocus onChange={(event) => setUserData({...userData, email: event.target.value})}/>
+                            <Input name="email" onChange={(event) => handleFormDetailsChange(event)}/>
                         </FormControl>
                         <FormControl margin="normal" required fullWidth>
                             <InputLabel htmlFor="password">Password</InputLabel>
-                            <Input name="password" type="password" onChange={(event) => setUserData({...userData, password: event.target.value})}/>
+                            <Input name="password" type="password" onChange={(event) => handleFormDetailsChange(event)}/>
                         </FormControl>
                         <FormControlLabel value="accepted" control={<Radio />} label="I accept all Terms & Conditions" />
                         <Button variant="contained" onClick={signupHandler}>Create New Account</Button>

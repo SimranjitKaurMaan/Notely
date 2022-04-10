@@ -16,17 +16,24 @@ export function EmptyNote() {
     const [showColorPallete, setShowColorPallete] = useState(false);
     const [showAddTags , setShowAddTags] = useState(false);
 
+      
+    const handleNoteDetailsChange = (event) => {
+        const inputName = event.target.name;
+        const inputValue = event.target.value;
+        setNote({...note, [inputName]:inputValue});
+    }
+
     return (<>
             <Card variant="outlined" sx={{...NotelyTheme.card.containerStyle , bgcolor: `${note.color}`}}>
                 <div style={{...NotelyTheme.editableCard.titleContainerStyle}}>   
-                    <TextField variant="standard" InputProps={{disableUnderline: true}} placeholder="Title" value={note.title} onChange={(event) => setNote({...note, title: event.target.value})}/>
+                    <TextField variant="standard" InputProps={{disableUnderline: true}} placeholder="Title" name="title" value={note.title} onChange={(event) => handleNoteDetailsChange(event)}/>
                     <IconButton aria-label="pin note" sx={{...NotelyTheme.card.actionStyle}} onClick={() => setNote({...note, pinned: !note.pinned})}>
                         {note.pinned ? <PushPinIcon/> : <PushPinOutlinedIcon/> }
                     </IconButton>
                 </div>  
                 <CardContent sx={{ textAlign: 'start'}}>
                     <Typography variant="body2" color="text.secondary">
-                        <TextField multiline fullWidth variant="standard" InputProps={{disableUnderline: true, style: {...NotelyTheme.card.textAreaStyle}}} placeholder="Take a note..." value={note.content} onChange={(event) => setNote({...note, content: event.target.value})}/>
+                        <TextField multiline fullWidth variant="standard" InputProps={{disableUnderline: true, style: {...NotelyTheme.card.textAreaStyle}}} placeholder="Take a note..."  name="content" value={note.content} onChange={(event) => handleNoteDetailsChange(event)}/>
                     </Typography>
                 </CardContent>
                 <CardActions>
