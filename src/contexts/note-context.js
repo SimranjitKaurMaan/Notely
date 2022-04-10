@@ -23,13 +23,16 @@ export const NoteProvider = ({children}) => {
         if(JSON.stringify(note)  === JSON.stringify(defaultState)) return;
         console.log(`Saving...${note}`);
         const updatedNotes = await postNote(note);
+        console.log(`Saved...${note}`);
         setNotes(updatedNotes);
         setNote(defaultState);
     }
 
     const archiveNote = async ({...note}) => {
-         const archivedNotes = await archiveNoteHandler(note);
-         setArchivedNotes(archivedNotes);
+         const updatedNotes = await archiveNoteHandler(note);
+         setArchivedNotes(archivedNotes => [...archivedNotes, note]);
+         console.log(`Archived Notes: ${archivedNotes}`)
+         setNotes(updatedNotes);
     }
 
     const deleteNote = async ({...note}) => {

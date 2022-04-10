@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {Button, Typography} from '@mui/material';
+import {Typography} from '@mui/material';
 import IconButton from '@mui/material/IconButton';
 import { DeleteOutlineOutlined } from '@mui/icons-material';
 
@@ -10,7 +10,8 @@ import { useNote } from '../contexts/note-context';
 
 
 export const Archive = () => {
-    const {archivedNotes} = useNote();
+    const {notes} = useNote();
+    const archivedNotes = notes.filter(note => note.state === 'ARCHIVED');
     return <>
     <div className="wrapper">
         <aside>
