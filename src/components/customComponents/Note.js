@@ -34,7 +34,7 @@ export function Note({...props}) {
         </CardContent>
         <CardActions>
            <Typography variant="body2" color="text.secondary">
-                Created At: {note.createdAt}   
+                Created On: {note.createdAt}   
            </Typography>
             <IconButton aria-label="change color" sx={{...NotelyTheme.card.actionStyle}}>
                 <ColorLensOutlinedIcon/>
