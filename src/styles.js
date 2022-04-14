@@ -21,7 +21,8 @@ export const NotelyTheme = {
    card: {
     containerStyle: {
         maxWidth: 400, 
-        mt: 4 
+        mt: 4,
+        boxShadow: 4
     }, 
     headerStyle: {
         textAlign: 'start'
@@ -59,10 +60,38 @@ export const NotelyTheme = {
        }
    },
    colorPallete: {
+    colors: {   
        redColor: '#F28A83',
        yellowColor: '#FFF275',
        blueColor: '#CAF0F9',
        greenColor: '#CBFE91',
-       pinkColor: '#FDCEE9'
+       pinkColor: '#FDCEE9',
+       purpleColor: '#D7AEFA',
+       greyColor: '#E6EBED'
+    },
+    containerStyle: {
+        position: 'fixed',
+        top: 430,
+        zIndex: 'tooltip',
+        width: 'fit-content', 
+        minWidth: 200,
+        bgcolor: 'background.paper',
+        p: 1, 
+        borderRadius: 2, 
+        boxShadow: 4 
+    }
+   },
+   addTagDialog:{
+    containerStyle: {
+        position: 'fixed',
+        top: 430,
+        zIndex: 'tooltip',
+        width: 'fit-content', 
+        minWidth: 200,
+        bgcolor: 'background.paper',
+        p: 1, 
+        borderRadius: 2, 
+        boxShadow: 4 
+    }
    }
 }
