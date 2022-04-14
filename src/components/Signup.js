@@ -1,18 +1,22 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router';
+import { useNavigate , useLocation} from 'react-router';
+import { useAuth } from '../contexts/auth-context';
 import { signupUser } from '../utils/requestUtils/AuthRequestUtils';
 import { FormControl, InputLabel, Input, Radio, FormControlLabel, Button } from '@mui/material';
 
 
 export const SignUp = () => {
-    const [userData, setUserData] = useState({email: '',password: ''});
+    const {setIsLoggedIn } = useAuth();
+    const location = useLocation();
     const navigate = useNavigate();
+    const [userData, setUserData] = useState({email: '',password: ''});
     const signupHandler =  async (event) => {
         event.preventDefault();
         const response = await signupUser(userData);
         console.log(response);
         document.cookie = "token=" + response.encodedToken;
-        navigate('/');
+        setIsLoggedIn((isLoggedIn) => !isLoggedIn);
+        navigate(location?.state?.from?.pathname, { replace: true });
     }
     const testUserSignupHandler =  async (event) => {
         event.preventDefault();
@@ -20,7 +24,8 @@ export const SignUp = () => {
         const response = await signupUser({email:'test',password:'test'});
         console.log(response);
         document.cookie = "token=" + response.encodedToken;
-        navigate('/');
+        setIsLoggedIn((isLoggedIn) => !isLoggedIn);
+        navigate(location?.state?.from?.pathname, { replace: true });
     }
   
     const handleFormDetailsChange = (event) => {
