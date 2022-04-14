@@ -7,11 +7,15 @@ import { DeleteOutlineOutlined } from '@mui/icons-material';
 import { Note, Navbar, SearchBar } from './customComponents';
 import { NotelyTheme } from '../styles';
 import { useNote } from '../contexts/note-context';
+import { useFilter } from '../contexts/filter-context';
 
 
 export const Archive = () => {
     const {notes} = useNote();
+    const {filteredState} = useFilter();
     const archivedNotes = notes.filter(note => note.state === 'ARCHIVED');
+    const displayNotes = filteredState ? filteredState.filteredNotes.length===0 ? archivedNotes : filteredState.filteredNotes.filter(note => note.state === 'ARCHIVED') : archivedNotes;
+
     return <>
     <div className="wrapper">
         <aside>
@@ -29,7 +33,7 @@ export const Archive = () => {
                                     <DeleteOutlineOutlined/>
                                 </IconButton>
                             </div>
-                            {archivedNotes && archivedNotes.map(note => <Note note={note}/>)}
+                            {displayNotes && displayNotes.map(note => <Note note={note}/>)}
                         </div>
                 </div>
             </main>

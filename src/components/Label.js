@@ -7,6 +7,7 @@ import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
 import { Note, Navbar, SearchBar } from './customComponents';
 import { NotelyTheme } from '../styles';
 import { useNote } from '../contexts/note-context';
+import { useFilter } from '../contexts/filter-context';
 
 const getLabels = (notes) => {
     return notes.reduce((acculumator,note) => [...acculumator, ...note.tags] ,[])
@@ -15,6 +16,9 @@ const getLabels = (notes) => {
 export const Label = () => {
     const {notes} = useNote();
     const labels = [...new Set(getLabels(notes))];
+    const {filteredState} = useFilter();
+    const allNotes = notes && notes.filter(note => note.state !== 'DELETED');
+    const displayNotes = filteredState ? filteredState.filteredNotes.length===0 ? allNotes : filteredState.filteredNotes : allNotes;
     return <>
     <div className="wrapper">
         <aside>
@@ -33,7 +37,7 @@ export const Label = () => {
                                     <EditOutlinedIcon/>
                                 </IconButton>
                             </div>
-                            {notes && notes.map(note => note.tags.includes(label)? <Note note={note}/>: null)}
+                            {displayNotes && displayNotes.map(note => note.tags.includes(label)? <Note note={note}/>: null)}
                         </>)
                        }
                     </div>

@@ -8,10 +8,11 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import { useFilter } from "../../contexts/filter-context";
+import { useNote } from "../../contexts/note-context";
 
 export const SortFilterDialog = ({...props}) => {
     const {filteredState, handleSortByDate, handleFilterByLabel} = useFilter();
-    //console.log(`filterState: ${JSON.stringify(filterState)}`);
+    const {notes} = useNote();
     const labels = ['Work','Health','Creativity','Teams','Exercise','Chores'];
     const {openDialog, setOpenDialog} = props;
 
@@ -26,7 +27,7 @@ export const SortFilterDialog = ({...props}) => {
                         id="sort-by"
                         value={filteredState.sortBy}
                         label="Sort By"
-                        onChange={(event) => handleSortByDate(event.target.value)}
+                        onChange={(event) => handleSortByDate(event.target.value, notes)}
                     >
                         <MenuItem value={'descending'}>Newest First</MenuItem>
                         <MenuItem value={'ascending'}>Oldest First</MenuItem>
@@ -35,7 +36,7 @@ export const SortFilterDialog = ({...props}) => {
                 <FormControl sx={{ m: 4 , ml: 1 }} component="fieldset" variant="standard">
                     <FormLabel component="legend">Select Labels</FormLabel>
                     <FormGroup>
-                        {labels.map(label => <FormControlLabel control={<Checkbox/>} label={label} checked={filteredState.labels.includes(label)} onChange={() => handleFilterByLabel(label)}/> )}
+                        {labels.map(label => <FormControlLabel control={<Checkbox/>} label={label} checked={filteredState.labels.includes(label)} onChange={() => handleFilterByLabel(label, notes)}/> )}
                     </FormGroup>
                 </FormControl>
             </Box>

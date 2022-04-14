@@ -10,12 +10,10 @@ import { Navbar, SearchBar, EmptyNote, Note } from './customComponents';
 export const Home = () => {
     const {notes, saveNote } = useNote();
     const {filteredState} = useFilter();
-    filteredState && console.log(`filteredNotes in Home: ${JSON.stringify(filteredState.filteredNotes)}`)
     const allNotes = notes && notes.filter(note => note.state !== 'DELETED');
     const displayNotes = filteredState ? filteredState.filteredNotes.length===0 ? allNotes : filteredState.filteredNotes : allNotes;
     const pinnedNotes = displayNotes && displayNotes.filter(note => note.pinned);
     const nonPinnedNotes = displayNotes && displayNotes.filter(note => !note.pinned);
-    console.log(`displayNotes in Home: ${JSON.stringify(displayNotes)}`)
 
     return <>
         <div className="wrapper">
