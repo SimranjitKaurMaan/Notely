@@ -24,32 +24,32 @@ export const Home = () => {
             </aside>
             <main onClick={() => saveNote()}>
                 <div className="main-wrapper">
-                        <SearchBar/>
-                        <div className="notes-wrapper" onClick={(e) => e.stopPropagation()}>
-                            <EmptyNote/>
+                    <SearchBar/>
+                    <div className="notes-wrapper" onClick={(e) => e.stopPropagation()}>
+                        <EmptyNote/>
+                    </div>
+                    {pinnedNotes.length > 0 && <div className="notes-wrapper">
+                        <div className="notes-header" style={{marginTop: '2rem'}}>
+                            <Typography variant="body2" color="text.secondary" textAlign='start' lineHeight='4'>
+                                PINNED
+                            </Typography>
+                            <IconButton aria-label="edit note" sx={{...NotelyTheme.notes.headerIconStyle}}>
+                                <EditOutlinedIcon/>
+                            </IconButton>
                         </div>
-                        {pinnedNotes.length > 0 && <div className="notes-wrapper">
-                            <div className="notes-header" style={{marginTop: '2rem'}}>
-                                <Typography variant="body2" color="text.secondary" textAlign='start' lineHeight='4'>
-                                    PINNED
-                                </Typography>
-                                <IconButton aria-label="edit note" sx={{...NotelyTheme.notes.headerIconStyle}}>
-                                    <EditOutlinedIcon/>
-                                </IconButton>
-                            </div>
-                            {pinnedNotes.map(note => <Note note={note}/>)} 
-                        </div>}
-                        <div className="notes-wrapper">
-                          {pinnedNotes.length > 0 && nonPinnedNotes.length > 0 &&  <div className="notes-header" style={{marginTop: '2rem'}}>
-                                <Typography variant="body2" color="text.secondary" textAlign='start' lineHeight='4'>
-                                    OTHERS
-                                </Typography>
-                                <IconButton aria-label="edit note" sx={{...NotelyTheme.notes.headerIconStyle}}>
-                                    <EditOutlinedIcon/>
-                                </IconButton>
-                            </div>}  
-                         {nonPinnedNotes && nonPinnedNotes.map(note => <Note note={note}/>)} 
-                        </div>
+                        {pinnedNotes.map(note => <Note note={note}/>)} 
+                    </div>}
+                    <div className="notes-wrapper">
+                        {pinnedNotes.length > 0 && nonPinnedNotes.length > 0 &&  <div className="notes-header" style={{marginTop: '2rem'}}>
+                            <Typography variant="body2" color="text.secondary" textAlign='start' lineHeight='4'>
+                                OTHERS
+                            </Typography>
+                            <IconButton aria-label="edit note" sx={{...NotelyTheme.notes.headerIconStyle}}>
+                                <EditOutlinedIcon/>
+                            </IconButton>
+                        </div>}  
+                        {nonPinnedNotes && nonPinnedNotes.map(note => <Note note={note}/>)} 
+                    </div>
                 </div>
             </main>
         </div>

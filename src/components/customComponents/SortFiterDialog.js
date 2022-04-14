@@ -18,27 +18,27 @@ export const SortFilterDialog = ({...props}) => {
     return <Dialog fullWidth open={openDialog} onClose={() => setOpenDialog(false)}>
         <DialogTitle>Sort & Filter Notes</DialogTitle>
         <DialogContent>
-        <Box sx={{ minWidth: 120 , padding: 4}}>
-        <FormControl fullWidth>
-            <InputLabel id="sort-by">Sort By</InputLabel>
-            <Select
-                labelId="sort-by"
-                id="sort-by"
-                value={filteredState.sortBy}
-                label="Sort By"
-                onChange={(event) => handleSortByDate(event.target.value)}
-            >
-                <MenuItem value={'descending'}>Newest First</MenuItem>
-                <MenuItem value={'ascending'}>Oldest First</MenuItem>
-            </Select>
-        </FormControl>
-        <FormControl sx={{ m: 4 , ml: 1 }} component="fieldset" variant="standard">
-            <FormLabel component="legend">Select Labels</FormLabel>
-            <FormGroup>
-                {labels.map(label => <FormControlLabel control={<Checkbox/>} label={label} checked={filteredState.labels.includes(label)} onChange={() => handleFilterByLabel(label)}/> )}
-            </FormGroup>
-      </FormControl>
-        </Box>
+            <Box sx={{ minWidth: 120 , padding: 4}}>
+                <FormControl fullWidth>
+                    <InputLabel id="sort-by">Sort By</InputLabel>
+                    <Select
+                        labelId="sort-by"
+                        id="sort-by"
+                        value={filteredState.sortBy}
+                        label="Sort By"
+                        onChange={(event) => handleSortByDate(event.target.value)}
+                    >
+                        <MenuItem value={'descending'}>Newest First</MenuItem>
+                        <MenuItem value={'ascending'}>Oldest First</MenuItem>
+                    </Select>
+                </FormControl>
+                <FormControl sx={{ m: 4 , ml: 1 }} component="fieldset" variant="standard">
+                    <FormLabel component="legend">Select Labels</FormLabel>
+                    <FormGroup>
+                        {labels.map(label => <FormControlLabel control={<Checkbox/>} label={label} checked={filteredState.labels.includes(label)} onChange={() => handleFilterByLabel(label)}/> )}
+                    </FormGroup>
+                </FormControl>
+            </Box>
         </DialogContent>
     </Dialog>
 }
