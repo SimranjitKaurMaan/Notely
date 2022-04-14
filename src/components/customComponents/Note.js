@@ -3,17 +3,13 @@ import { Card, CardHeader, CardContent, CardActions, Typography, IconButton } fr
 import PushPinOutlinedIcon from '@mui/icons-material/PushPinOutlined';
 import PushPinIcon from '@mui/icons-material/PushPin';
 import LabelOutlinedIcon from '@mui/icons-material/LabelOutlined';
-import DeleteIcon from '@mui/icons-material/Delete';
 import DeleteOutlinedIcon from '@mui/icons-material/DeleteOutlined';
-import ArchiveIcon from '@mui/icons-material/Archive';
 import ArchiveOutlinedIcon from '@mui/icons-material/ArchiveOutlined';
 import ColorLensOutlinedIcon from '@mui/icons-material/ColorLensOutlined';
 import { NotelyTheme } from '../../styles';
-import { useNote } from '../../contexts/note-context';
 
-export function Note({note}) {
-    const {deleteNote} = useNote();
-
+export function Note({...props}) {
+    const {note} = props;
     return (
         <Card variant="outlined" sx={{...NotelyTheme.card.containerStyle, bgcolor: `${note.color}` }}>
             <CardHeader sx={{...NotelyTheme.card.headerStyle}}
@@ -38,10 +34,10 @@ export function Note({note}) {
                 <LabelOutlinedIcon/>
             </IconButton>
             <IconButton aria-label="archive">
-              {note.state === 'ARCHIVED' ? <ArchiveIcon/> : <ArchiveOutlinedIcon/>}
+                <ArchiveOutlinedIcon/>
             </IconButton>
-            <IconButton aria-label="delete" onClick={() => deleteNote(note)}>
-            {note.state === 'DELETED' ? <DeleteIcon/> : <DeleteOutlinedIcon/>}
+            <IconButton aria-label="delete">
+                <DeleteOutlinedIcon/>
             </IconButton>
         </CardActions>
         </Card>

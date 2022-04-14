@@ -13,12 +13,12 @@ export const SignUp = () => {
         const response = await signupUser(userData);
         console.log(response);
         document.cookie = "token=" + response.encodedToken;
-        navigate('/');
+        navigate('/login');
     }
     const testUserSignupHandler =  async (event) => {
         event.preventDefault();
         setUserData({email:'test',password:'test'});
-        const response = await signupUser({email:'test',password:'test'});
+        const response = await signupUser(userData);
         console.log(response);
         document.cookie = "token=" + response.encodedToken;
         navigate('/');

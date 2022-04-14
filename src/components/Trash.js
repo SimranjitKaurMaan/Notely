@@ -5,10 +5,8 @@ import { DeleteOutlineOutlined } from '@mui/icons-material';
 
 import { Note, Navbar, SearchBar } from './customComponents';
 import { NotelyTheme } from '../styles';
-import { useNote } from '../contexts/note-context';
 
 export const Trash = () => {
-    const {deletedNotes} = useNote();
     return <>
     <div className="wrapper">
     <aside>
@@ -26,7 +24,7 @@ export const Trash = () => {
                             <DeleteOutlineOutlined/>
                         </IconButton>
                         </div>
-                        {deletedNotes && deletedNotes.map(deletedNote => <Note note={deletedNote}/>)}
+                        <Note/>
                     </div>
             </div>
         </main>
