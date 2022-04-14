@@ -1,4 +1,4 @@
-import { Box, Checkbox, FormControlLabel, Button} from "@mui/material";
+import { Box, Checkbox, FormControlLabel, Button, FormGroup} from "@mui/material";
 import { useNote } from "../../contexts/note-context";
 import { NotelyTheme } from "../../styles";
 
@@ -11,7 +11,9 @@ export const AddTag = ({...props}) => {
     };
 
     return (<Box sx={{...NotelyTheme.addTagDialog.containerStyle}}>
-               {labels.map(label => <FormControlLabel control={<Checkbox/>} label={label} checked={note.tags.includes(label)} onChange={() => handleLabelsChange(label)}/> )}
+               <FormGroup>
+                 {labels.map(label => <FormControlLabel control={<Checkbox/>} label={label} checked={note.tags.includes(label)} onChange={() => handleLabelsChange(label)}/> )}
+               </FormGroup>
                <Button variant="outlined" size="small" onClick={() => setShowAddTags(false)}>CLOSE</Button>
             </Box>
     );
