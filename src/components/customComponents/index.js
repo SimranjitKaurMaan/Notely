@@ -6,3 +6,4 @@ export {EmptyNote} from './EmptyNote';
 export {ColorPallete} from './ColorPallete';
 export {AddTag} from './AddTag';
 export {Footer} from './Footer';
+export {RequiresAuth} from './RequiresAuth';

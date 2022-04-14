@@ -44,7 +44,7 @@ export function Navbar() {
           <ListItemText primary="Trash" />
         </ListItemButton>
       </ListItem>
-      <ListItem button component={Link} to="/signup" disablePadding>
+      <ListItem button component={Link} to="/" disablePadding>
       <ListItemButton>
           <ListItemIcon>
             <AccountCircleOutlinedIcon />
