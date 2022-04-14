@@ -1,6 +1,4 @@
 export const handleSortByDate = (items, { sortBy }) => {
-    console.log(`items: ${JSON.stringify(items)}`)
-    console.log(`sortBy: ${sortBy}`);
     switch (sortBy) {
       case "ascending":
         return items.sort(
@@ -16,34 +14,32 @@ export const handleSortByDate = (items, { sortBy }) => {
   };
 
   export const handleFilterByLabels = ( items, {labels}) => {
-    console.log(`items: ${JSON.stringify(items)}`)
-    console.log(`labels: ${labels}`);
     const filteredItems = items.filter(item => item.tags.some(tag => labels.includes(tag)));
     return filteredItems;
 }
 
 
-const functionalChaining =
+const applyFunctions =
 (filterParams, ...functions) =>
-(notes) => {
+(filteredNotes) => {
     return functions.reduce(
     (accum, curr) => curr(accum, filterParams),
-    notes
+    filteredNotes
     );
 };
 
 export const applyFilterAndSorts = (state) => {
 const {
-    notes,
+    filteredNotes,
     sortBy,
     labels
 } = state;
-const composedFunctions = functionalChaining(
+const composedFunctions = applyFunctions(
     { sortBy, labels },
     handleSortByDate,
     handleFilterByLabels
 );
 
-const updatedList = composedFunctions(notes);
+const updatedList = composedFunctions(filteredNotes);
 return updatedList;
 };
