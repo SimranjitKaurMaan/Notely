@@ -11,11 +11,11 @@ import ColorLensOutlinedIcon from '@mui/icons-material/ColorLensOutlined';
 import { NotelyTheme } from '../../styles';
 import { useNote } from '../../contexts/note-context';
 
-export function Note({...props}) {
-    const {note} = props;
-    const {deleteNote, setNote } = useNote();
-    return (<>
-        <Card variant="outlined" sx={{...NotelyTheme.card.containerStyle, bgcolor: `${note.color}` }} onClick={() => setNote(note)}>
+export function Note({note}) {
+    const {deleteNote} = useNote();
+
+    return (
+        <Card variant="outlined" sx={{...NotelyTheme.card.containerStyle, bgcolor: `${note.color}` }}>
             <CardHeader sx={{...NotelyTheme.card.headerStyle}}
                 action={
                 <IconButton aria-label="pin note">
@@ -50,6 +50,5 @@ export function Note({...props}) {
             </IconButton>
         </CardActions>
         </Card>
-        </>
     );
   }
