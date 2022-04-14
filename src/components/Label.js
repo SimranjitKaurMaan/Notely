@@ -17,7 +17,6 @@ export const Label = () => {
     const {notes} = useNote();
     const labels = [...new Set(getLabels(notes))];
     const {filteredState} = useFilter();
-    filteredState && console.log(`filteredNotes in Home: ${JSON.stringify(filteredState.filteredNotes)}`)
     const allNotes = notes && notes.filter(note => note.state !== 'DELETED');
     const displayNotes = filteredState ? filteredState.filteredNotes.length===0 ? allNotes : filteredState.filteredNotes : allNotes;
     return <>

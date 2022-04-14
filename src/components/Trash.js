@@ -11,9 +11,9 @@ export const Trash = () => {
     const {deletedNotes} = useNote();
     return <>
     <div className="wrapper">
-    <aside>
-      <Navbar/>
-    </aside>
+        <aside>
+            <Navbar/>
+        </aside>
         <main>
              <div className="main-wrapper">
                     <SearchBar/>

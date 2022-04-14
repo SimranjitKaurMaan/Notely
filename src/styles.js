@@ -70,7 +70,7 @@ export const NotelyTheme = {
        greyColor: '#E6EBED'
     },
     containerStyle: {
-        position: 'fixed',
+        position: 'absolute',
         top: 430,
         zIndex: 'tooltip',
         width: 'fit-content', 
@@ -83,7 +83,7 @@ export const NotelyTheme = {
    },
    addTagDialog:{
     containerStyle: {
-        position: 'fixed',
+        position: 'absolute',
         top: 430,
         zIndex: 'tooltip',
         width: 'fit-content', 
