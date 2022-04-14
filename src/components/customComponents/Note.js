@@ -11,8 +11,7 @@ import ColorLensOutlinedIcon from '@mui/icons-material/ColorLensOutlined';
 import { NotelyTheme } from '../../styles';
 import { useNote } from '../../contexts/note-context';
 
-export function Note({...props}) {
-    const {note} = props;
+export function Note({note}) {
     const {deleteNote} = useNote();
 
     return (

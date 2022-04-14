@@ -1,10 +1,10 @@
 import { Routes, Route } from "react-router-dom";
-import { Archive } from "../Archive";
-import { Home } from "../Home";
-import { Label } from "../Label";
-import { Trash } from "../Trash";
+import { Archive } from "../";
+import { Home } from "../";
+import { Label } from "../";
+import { Trash } from "../";
 import { MockAPI } from "../../MockAPI";
-import { SignUp } from "../Signup";
+import { SignUp } from '../';
 export const Router = () => {
     return (
         <Routes>
