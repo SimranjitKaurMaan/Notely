@@ -20,7 +20,8 @@ export const NotelyTheme = {
    }, 
    card: {
     containerStyle: {
-        maxWidth: 400, 
+        minWidth: 700,
+        maxWidth: 'fit-content', 
         mt: 4,
         boxShadow: 4
     }, 
