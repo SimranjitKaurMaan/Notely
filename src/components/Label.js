@@ -25,9 +25,9 @@ export const Label = () => {
                    <SearchBar/>
                     <div className="notes-wrapper">
                        {labels && labels.map(label => <>
-                            <div className="notes-header">
+                            <div className="notes-header" style={{marginTop: '2rem'}}>
                                 <Typography variant="body2" color="text.secondary" textAlign='start' lineHeight='4'>
-                                    {label}
+                                    {label.toUpperCase()}
                                 </Typography>
                                 <IconButton aria-label="edit note" sx={{...NotelyTheme.notes.headerIconStyle}}>
                                     <EditOutlinedIcon/>
