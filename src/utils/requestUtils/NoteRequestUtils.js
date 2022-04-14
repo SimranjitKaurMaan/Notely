@@ -1,9 +1,15 @@
 import { Config as config } from "../../Config";
-import { fetchDataWithToken, postDataWithParams, postDataWithToken, RequestType } from "../../services/APIHandler";
+import { fetchDataWithToken, postDataWithParams, postDataWithToken, postRawDataWithParams, RequestType } from "../../services/APIHandler";
 
 export const postNote = async ({...note}) => {
     const url = `${config.apiHost}/notes`;
     const response = await postDataWithToken(RequestType.POST, url, {note});
+    return response.notes;
+}
+
+export const updateNote = async ({...note}) => {
+    const url = `${config.apiHost}/notes`;
+    const response = await postRawDataWithParams(RequestType.POST, url, note._id, {note});
     return response.notes;
 }
 

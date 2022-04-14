@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Card, CardHeader, CardContent, CardActions, Typography, IconButton } from "@mui/material";
+import { Card, CardHeader, CardContent, CardActions, Typography, IconButton, Chip, Stack } from "@mui/material";
 import PushPinOutlinedIcon from '@mui/icons-material/PushPinOutlined';
 import PushPinIcon from '@mui/icons-material/PushPin';
 import LabelOutlinedIcon from '@mui/icons-material/LabelOutlined';
@@ -28,9 +28,14 @@ export function Note({note}) {
             <Typography variant="body2" color="text.secondary">
                 {note.content}
             </Typography>
+            <Stack direction="row" spacing={1}>
+                { note.tags.map( tag => <Chip label={tag} ></Chip>)}
+            </Stack>          
         </CardContent>
         <CardActions>
-           { note.tags.map( tag => <Typography variant="body2" color="text.secondary">{tag}</Typography>)}
+           <Typography variant="body2" color="text.secondary">
+                Created On: {note.createdAt}   
+           </Typography>
             <IconButton aria-label="change color" sx={{...NotelyTheme.card.actionStyle}}>
                 <ColorLensOutlinedIcon/>
             </IconButton>
@@ -40,7 +45,7 @@ export function Note({note}) {
             <IconButton aria-label="archive">
               {note.state === 'ARCHIVED' ? <ArchiveIcon/> : <ArchiveOutlinedIcon/>}
             </IconButton>
-            <IconButton aria-label="delete" onClick={() => deleteNote(note)}>
+            <IconButton aria-label="delete" onClick={(event) => {deleteNote(note); event.stopPropagation()}}>
             {note.state === 'DELETED' ? <DeleteIcon/> : <DeleteOutlinedIcon/>}
             </IconButton>
         </CardActions>

@@ -93,6 +93,34 @@ const toQueryString = (obj) => {
     }
 }
 
+/**
+ * Post data to API 
+ * @param {HTTP Request Type} requestType
+ * @param {Param object to pass} paramData
+ * @param {The url of API to be called to post data} apiUrl 
+ * @returns {response from the API}
+ */
+ export const postRawDataWithParams = async (requestType, apiUrl, paramData, data) => {
+    const encodedToken = document.cookie.split('; ').find(row => row.startsWith('token=')).split('=')[1];
+    const headers = {
+        Accept: 'application/json',
+        authorization: encodedToken
+    }
+    try
+    {
+        const response =  await fetch(`${apiUrl}/${paramData}`, {
+                method: requestType,
+                headers,
+                body: JSON.stringify(data)
+            })
+        const jsonResponse = await response.json();
+        return jsonResponse;    
+    } catch(error) {
+       console.warn(`API error ${error}`);
+       throw error;
+    }
+}
+
 export const postData = async (requestType, apiUrl, data) => {
     const headers = {
         Accept: 'application/json'

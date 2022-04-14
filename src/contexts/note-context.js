@@ -1,5 +1,6 @@
 import { createContext, useContext, useState } from "react";
-import { postNote , archiveNoteHandler, deleteNoteHandler} from "../utils/requestUtils/NoteRequestUtils";
+import dayjs from "dayjs";
+import { postNote , archiveNoteHandler, deleteNoteHandler, updateNote} from "../utils/requestUtils/NoteRequestUtils";
 
 const NoteContext = createContext();
 
@@ -10,18 +11,18 @@ export const NoteProvider = ({children}) => {
         pinned: false,
         color: 'default',
         state: 'CREATED',
-        tags: []
-    }
+        tags: [],
+        createdAt: formatDate()
+    };
     const [ note , setNote ] = useState(defaultState);
     const [ notes , setNotes ] = useState([]);
     const [deletedNotes, setDeletedNotes ] = useState([]);
-
+    
     const saveNote = async () => {
         // eslint-disable-next-line eqeqeq
         console.log(note);
-        if(JSON.stringify(note)  === JSON.stringify(defaultState)) return;
-        console.log(`Saving...${note}`);
-        const updatedNotes = await postNote(note);
+        if((JSON.stringify(note.title) && JSON.stringify(note.content))  === (JSON.stringify(defaultState.title) && JSON.stringify(defaultState.content))) return;
+        const updatedNotes = note._id ? await updateNote(note): await postNote(note);
         console.log(`Saved...${note}`);
         setNotes(updatedNotes);
         setNote(defaultState);
@@ -45,4 +46,7 @@ export const NoteProvider = ({children}) => {
     </NoteContext.Provider> );
 }
 
+export const formatDate = () => dayjs().format("DD-MM-YYYY");
+
 export const useNote = () => useContext(NoteContext);
+
