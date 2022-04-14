@@ -46,7 +46,7 @@ export const NoteProvider = ({children}) => {
     </NoteContext.Provider> );
 }
 
-export const formatDate = () => dayjs().format("DD-MM-YYYY");
+export const formatDate = () => dayjs().format("YYYY-MM-DDTHH:mm:ssZ");
 
 export const useNote = () => useContext(NoteContext);
 

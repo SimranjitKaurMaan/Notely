@@ -14,17 +14,18 @@ export const filterReducer = (state, action) => {
               sortBy: action.payload.sortBy
             }
           };
-          case "FILTER_BY_LABEL":{
+        case "FILTER_BY_LABEL":{
             let result = [...action.payload.notes];
             //const newState = {...state, labels: distinctLabels}
             //result = applyFilterAndSorts(newState);
             const label = action.payload.label;
-            const filteredNotes = handleFilterByLabels([...result],{labels: [...state.labels, label]});
+            const newLabels = state.labels.includes(label) ? state.labels.filter(l => l!== label) : [...state.labels, label];
+            const filteredNotes = handleFilterByLabels([...result],{labels: newLabels});
             console.log(`filteredNotes: ${JSON.stringify(filteredNotes)}`);
             return {
               ...state,
               filteredNotes: filteredNotes,
-              labels:[...state.labels, label]
+              labels: newLabels
           }
           };
        default: return state;     

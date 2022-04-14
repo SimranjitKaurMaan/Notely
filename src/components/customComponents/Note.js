@@ -1,4 +1,5 @@
 import * as React from 'react';
+import dayjs from "dayjs";
 import { Card, CardHeader, CardContent, CardActions, Typography, IconButton, Chip, Stack } from "@mui/material";
 import PushPinOutlinedIcon from '@mui/icons-material/PushPinOutlined';
 import PushPinIcon from '@mui/icons-material/PushPin';
@@ -34,7 +35,7 @@ export function Note({note}) {
         </CardContent>
         <CardActions>
            <Typography variant="body2" color="text.secondary">
-                Created On: {note.createdAt}   
+                Created On: {dayjs(note.createdAt).format('DD-MM-YYYY')}
            </Typography>
             <IconButton aria-label="change color" sx={{...NotelyTheme.card.actionStyle}}>
                 <ColorLensOutlinedIcon/>
