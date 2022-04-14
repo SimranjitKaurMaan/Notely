@@ -49,7 +49,7 @@ export const NotelyTheme = {
    navBar: {
        containerStyle:{
             width: '100%', 
-            minWidth: 300, 
+            minWidth: 200, 
             bgcolor: 'background.paper'
        }
    },
