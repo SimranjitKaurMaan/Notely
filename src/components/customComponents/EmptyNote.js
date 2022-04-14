@@ -41,16 +41,16 @@ export function EmptyNote() {
                     <IconButton aria-label="change color" sx={{...NotelyTheme.card.actionStyle}} onClick={() => setShowColorPallete(true)}>
                         <ColorLensOutlinedIcon/>
                     </IconButton>
+                    {showColorPallete && <ColorPallete setShowColorPallete={setShowColorPallete}/>}
                     <IconButton aria-label="tag" onClick={() => setShowAddTags(true)}>
                         <LabelOutlinedIcon/>
                     </IconButton>
+                    {showAddTags && <AddTag setShowAddTags={setShowAddTags}/>}
                     <IconButton aria-label="archive" onClick={() => {setNote({...note, state: 'ARCHIVED'});}}>
                         {note.state === 'ARCHIVED' ?  <ArchiveIcon/>: <ArchiveOutlinedIcon/>}
                     </IconButton>
                 </CardActions>
             </Card>
-            {showAddTags && <AddTag setShowAddTags={setShowAddTags}/>}
-            {showColorPallete && <ColorPallete setShowColorPallete={setShowColorPallete}/>}
         </>
     );
   }

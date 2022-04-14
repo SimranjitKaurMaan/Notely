@@ -28,7 +28,7 @@ export function Note({note}) {
             <Typography variant="body2" color="text.secondary">
                 {note.content}
             </Typography>
-            <Stack direction="row" spacing={1}>
+            <Stack direction="row" spacing={2} mt={4}>
                 { note.tags.map( tag => <Chip label={tag} ></Chip>)}
             </Stack>          
         </CardContent>
