@@ -2,7 +2,7 @@ import { Card, CardContent, CardActions, Typography, IconButton, TextField } fro
 import PushPinOutlinedIcon from '@mui/icons-material/PushPinOutlined';
 import PushPinIcon from '@mui/icons-material/PushPin';
 import LabelOutlinedIcon from '@mui/icons-material/LabelOutlined';
-import ArchiveIcon from '@mui/icons-material/Archive';
+import DeleteOutlinedIcon from '@mui/icons-material/DeleteOutlined';
 import ArchiveOutlinedIcon from '@mui/icons-material/ArchiveOutlined';
 import ColorLensOutlinedIcon from '@mui/icons-material/ColorLensOutlined';
 import { NotelyTheme } from '../../styles';
@@ -12,7 +12,7 @@ import { AddTag } from "./AddTag";
 import { useState } from "react";
 
 export function EmptyNote() {
-    const {note , setNote } = useNote();
+    const {note , setNote} = useNote();
     const [showColorPallete, setShowColorPallete] = useState(false);
     const [showAddTags , setShowAddTags] = useState(false);
 
@@ -44,8 +44,11 @@ export function EmptyNote() {
                     <IconButton aria-label="tag" onClick={() => setShowAddTags(true)}>
                         <LabelOutlinedIcon/>
                     </IconButton>
-                    <IconButton aria-label="archive" onClick={() => {setNote({...note, state: 'ARCHIVED'});}}>
-                        {note.state === 'ARCHIVED' ?  <ArchiveIcon/>: <ArchiveOutlinedIcon/>}
+                    <IconButton aria-label="archive">
+                        <ArchiveOutlinedIcon/>
+                    </IconButton>
+                    <IconButton aria-label="delete">
+                        <DeleteOutlinedIcon/>
                     </IconButton>
                 </CardActions>
             </Card>

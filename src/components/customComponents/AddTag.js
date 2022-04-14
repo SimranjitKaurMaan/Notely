@@ -1,4 +1,4 @@
-import { Box, Checkbox, FormControlLabel, Button} from "@mui/material";
+import { Box, Checkbox, FormControlLabel, Button } from "@mui/material";
 import { useNote } from "../../contexts/note-context";
 import { NotelyTheme } from "../../styles";
 

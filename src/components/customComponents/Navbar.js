@@ -1,5 +1,3 @@
-import {Link} from 'react-router-dom';
-
 import { Box, ListItem, List, ListItemButton, ListItemIcon, ListItemText} from "@mui/material";
 import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
 import LabelOutlinedIcon from '@mui/icons-material/LabelOutlined';
@@ -12,40 +10,40 @@ export function Navbar() {
     return ( <Box mb={4} sx={{...NotelyTheme.navBar.containerStyle}}>
     <nav aria-label="main menu">
     <List>
-      <ListItem button component={Link} to="/" disablePadding>
-      <ListItemButton>
+      <ListItem disablePadding>
+        <ListItemButton>
           <ListItemIcon>
             <HomeOutlinedIcon />
           </ListItemIcon>
           <ListItemText primary="Home" />
         </ListItemButton>
       </ListItem>
-      <ListItem button component={Link} to="/label" disablePadding>
-      <ListItemButton>
+      <ListItem disablePadding>
+        <ListItemButton>
           <ListItemIcon>
             <LabelOutlinedIcon />
           </ListItemIcon>
-          <ListItemText primary="Label" />
+          <ListItemText primary="Labels" />
         </ListItemButton>
       </ListItem>
-      <ListItem button component={Link} to="/archive" disablePadding>
-      <ListItemButton>
+      <ListItem disablePadding>
+        <ListItemButton>
           <ListItemIcon>
             <ArchiveOutlinedIcon />
           </ListItemIcon>
           <ListItemText primary="Archive" />
         </ListItemButton>
       </ListItem>
-      <ListItem button component={Link} to="/trash" disablePadding>
-      <ListItemButton>
+      <ListItem disablePadding>
+        <ListItemButton>
           <ListItemIcon>
             <DeleteOutlinedIcon />
           </ListItemIcon>
           <ListItemText primary="Trash" />
         </ListItemButton>
       </ListItem>
-      <ListItem button component={Link} to="/signup" disablePadding>
-      <ListItemButton>
+      <ListItem disablePadding>
+        <ListItemButton>
           <ListItemIcon>
             <AccountCircleOutlinedIcon />
           </ListItemIcon>
