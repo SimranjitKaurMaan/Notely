@@ -16,7 +16,7 @@ export const Home = () => {
             <aside>
             <Navbar/>
             </aside>
-            <main onClick={() => {saveNote()}}>
+            <main onClick={() => saveNote()}>
                 <div className="main-wrapper">
                         <SearchBar/>
                         <div className="notes-wrapper" onClick={(e) => e.stopPropagation()}>

@@ -12,10 +12,10 @@ import { NotelyTheme } from '../../styles';
 import { useNote } from '../../contexts/note-context';
 
 export function Note({note}) {
-    const {deleteNote} = useNote();
+    const {deleteNote, setNote} = useNote();
 
     return (
-        <Card variant="outlined" sx={{...NotelyTheme.card.containerStyle, bgcolor: `${note.color}` }}>
+        <Card variant="outlined" sx={{...NotelyTheme.card.containerStyle, bgcolor: `${note.color}` }} onClick={() => setNote(note)}>
             <CardHeader sx={{...NotelyTheme.card.headerStyle}}
                 action={
                 <IconButton aria-label="pin note">
