@@ -14,9 +14,8 @@ export const Archive = () => {
     const {notes} = useNote();
     const {filteredState} = useFilter();
     const archivedNotes = notes.filter(note => note.state === 'ARCHIVED');
-    filteredState && console.log(`filteredNotes in Home: ${JSON.stringify(filteredState.filteredNotes)}`)
     const displayNotes = filteredState ? filteredState.filteredNotes.length===0 ? archivedNotes : filteredState.filteredNotes.filter(note => note.state === 'ARCHIVED') : archivedNotes;
-    
+
     return <>
     <div className="wrapper">
         <aside>

@@ -19,11 +19,8 @@ export const NoteProvider = ({children}) => {
     const [deletedNotes, setDeletedNotes ] = useState([]);
     
     const saveNote = async () => {
-        // eslint-disable-next-line eqeqeq
-        console.log(note);
         if((JSON.stringify(note.title) && JSON.stringify(note.content))  === (JSON.stringify(defaultState.title) && JSON.stringify(defaultState.content))) return;
         const updatedNotes = note._id ? await updateNote(note): await postNote(note);
-        console.log(`Saved...${note}`);
         setNotes(updatedNotes);
         setNote(defaultState);
     }

@@ -13,7 +13,6 @@ import { useNote } from "../../contexts/note-context";
 export const SortFilterDialog = ({...props}) => {
     const {filteredState, handleSortByDate, handleFilterByLabel} = useFilter();
     const {notes} = useNote();
-    //console.log(`filterState: ${JSON.stringify(filterState)}`);
     const labels = ['Work','Health','Creativity','Teams','Exercise','Chores'];
     const {openDialog, setOpenDialog} = props;
 

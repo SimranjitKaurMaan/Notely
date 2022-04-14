@@ -13,7 +13,6 @@ export const SignUp = () => {
     const signupHandler =  async (event) => {
         event.preventDefault();
         const response = await signupUser(userData);
-        console.log(response);
         document.cookie = "token=" + response.encodedToken;
         setIsLoggedIn((isLoggedIn) => !isLoggedIn);
         navigate(location?.state?.from?.pathname, { replace: true });
@@ -22,7 +21,6 @@ export const SignUp = () => {
         event.preventDefault();
         setUserData({email:'test',password:'test'});
         const response = await signupUser({email:'test',password:'test'});
-        console.log(response);
         document.cookie = "token=" + response.encodedToken;
         setIsLoggedIn((isLoggedIn) => !isLoggedIn);
         navigate(location?.state?.from?.pathname, { replace: true });
