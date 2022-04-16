@@ -10,7 +10,8 @@ import { Navbar, SearchBar, EmptyNote, Note } from './customComponents';
 export const Home = () => {
     const {notes, saveNote } = useNote();
     const {filteredState, clearFilters } = useFilter();
-    const allNotes = notes && notes.filter(note => note.state !== 'DELETED');
+    const deletedStates = ['ARCHIVED','DELETED'];
+    const allNotes = notes && notes.filter(note => !deletedStates.includes(note.state));
     const displayNotes = filteredState ? filteredState.filteredNotes.length===0 ? allNotes : filteredState.filteredNotes : allNotes;
     const pinnedNotes = displayNotes && displayNotes.filter(note => note.pinned);
     const nonPinnedNotes = displayNotes && displayNotes.filter(note => !note.pinned);
