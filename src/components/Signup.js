@@ -4,7 +4,6 @@ import { useAuth } from '../contexts/auth-context';
 import { signupUser } from '../utils/requestUtils/AuthRequestUtils';
 import { FormControl, InputLabel, Input, Button } from '@mui/material';
 
-
 export const SignUp = () => {
     const {setIsLoggedIn } = useAuth();
     const location = useLocation();
@@ -32,6 +31,7 @@ export const SignUp = () => {
         setUserData({...userData, [inputName]:inputValue});
     }
 
+    
 
     return (<>
     <main>
