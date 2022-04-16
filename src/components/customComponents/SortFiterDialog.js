@@ -1,4 +1,4 @@
-import { DialogTitle, Dialog, DialogContent , Box} from "@mui/material";
+import { DialogTitle, Dialog, DialogContent , Box, Button} from "@mui/material";
 import FormGroup from '@mui/material/FormGroup';
 import FormLabel from '@mui/material/FormLabel';
 import FormControlLabel from '@mui/material/FormControlLabel';
@@ -9,14 +9,14 @@ import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import { useFilter } from "../../contexts/filter-context";
 import { useNote } from "../../contexts/note-context";
+import { labels } from "../../utils/Constants";
 
 export const SortFilterDialog = ({...props}) => {
     const {filteredState, handleSortByDate, handleFilterByLabel} = useFilter();
     const {notes} = useNote();
-    const labels = ['Work','Health','Creativity','Teams','Exercise','Chores'];
     const {openDialog, setOpenDialog} = props;
 
-    return <Dialog fullWidth open={openDialog} onClose={() => setOpenDialog(false)}>
+    return <Dialog fullWidth open={openDialog} onClick={(e) => e.stopPropagation()}>
         <DialogTitle>Sort & Filter Notes</DialogTitle>
         <DialogContent>
             <Box sx={{ minWidth: 120 , padding: 4}}>
@@ -40,6 +40,7 @@ export const SortFilterDialog = ({...props}) => {
                     </FormGroup>
                 </FormControl>
             </Box>
+            <Button variant="outlined" size="medium" sx={{marginLeft: 4}} onClick={() => setOpenDialog(false)}>CLOSE</Button>
         </DialogContent>
     </Dialog>
 }

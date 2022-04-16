@@ -9,7 +9,7 @@ import { Navbar, SearchBar, EmptyNote, Note } from './customComponents';
 
 export const Home = () => {
     const {notes, saveNote } = useNote();
-    const {filteredState} = useFilter();
+    const {filteredState, clearFilters } = useFilter();
     const allNotes = notes && notes.filter(note => note.state !== 'DELETED');
     const displayNotes = filteredState ? filteredState.filteredNotes.length===0 ? allNotes : filteredState.filteredNotes : allNotes;
     const pinnedNotes = displayNotes && displayNotes.filter(note => note.pinned);
@@ -20,7 +20,7 @@ export const Home = () => {
             <aside>
             <Navbar/>
             </aside>
-            <main onClick={() => saveNote()}>
+            <main onClick={() => {saveNote(); clearFilters();}}>
                 <div className="main-wrapper">
                     <SearchBar/>
                     <div className="notes-wrapper" onClick={(e) => e.stopPropagation()}>
