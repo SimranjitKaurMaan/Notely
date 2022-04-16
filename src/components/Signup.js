@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import { toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 import { useNavigate , useLocation} from 'react-router';
 import { useAuth } from '../contexts/auth-context';
 import { signupUser } from '../utils/requestUtils/AuthRequestUtils';
@@ -15,6 +17,7 @@ export const SignUp = () => {
         document.cookie = "token=" + response.encodedToken;
         setIsLoggedIn((isLoggedIn) => !isLoggedIn);
         navigate(location?.state?.from?.pathname, { replace: true });
+        showSignupToast();
     }
     const testUserSignupHandler =  async (event) => {
         event.preventDefault();
@@ -23,6 +26,7 @@ export const SignUp = () => {
         document.cookie = "token=" + response.encodedToken;
         setIsLoggedIn((isLoggedIn) => !isLoggedIn);
         navigate(location?.state?.from?.pathname, { replace: true });
+        showTestSignupToast();
     }
   
     const handleFormDetailsChange = (event) => {
@@ -31,7 +35,8 @@ export const SignUp = () => {
         setUserData({...userData, [inputName]:inputValue});
     }
 
-    
+    const showTestSignupToast = () => toast.info("You have signed up as a test user");
+    const showSignupToast = () => toast.info("You have signed up successfully.")
 
     return (<>
     <main>
