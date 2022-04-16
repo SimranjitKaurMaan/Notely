@@ -46,7 +46,7 @@ export function EmptyNote() {
                     <IconButton aria-label="archive" onClick={() => {setNote({...note, state: 'ARCHIVED'});}}>
                         {note.state === 'ARCHIVED' ?  <ArchiveIcon/>: <ArchiveOutlinedIcon/>}
                     </IconButton>
-                    <Button variant="text" style={{color: '#686968'}} onClick={() => saveNote()}>Close</Button>
+                    <Button variant="text" style={{...NotelyTheme.card.closeButtonStyle}} onClick={() => saveNote()}>Close</Button>
                 </CardActions>
             </Card>
             {showColorPallete && <ColorPallete setShowColorPallete={setShowColorPallete}/>}

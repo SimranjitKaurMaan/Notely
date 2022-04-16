@@ -39,6 +39,9 @@ export const NotelyTheme = {
     },
     actionStyle: {
         marginLeft: 'auto'
+    },
+    closeButtonStyle: {
+        color: '#686968'
     }
    },
    editableCard: {
