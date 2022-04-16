@@ -8,4 +8,6 @@
 5. Add Tags to notes
 6. Trash & Archive notes
 
-[![Check out the demo for Notely App](https://res.cloudinary.com/duddwta8d/image/upload/v1649958178/notely-demo_vbed08.gif)](https://res.cloudinary.com/duddwta8d/video/upload/v1649957554/Demo_for_notely_lhckr1.mov)
+[![Check out the demo for Notely App](https://res.cloudinary.com/duddwta8d/image/upload/v1649958178/notely-demo_vbed08.gif)](https://res.cloudinary.com/duddwta8d/video/upload/v1650128253/Screen_Recording_2022-04-16_at_10.08.34_PM_cu5fe8.mov)
+
+[Check out Notely App](https://res.cloudinary.com/duddwta8d/video/upload/v1650128253/Screen_Recording_2022-04-16_at_10.08.34_PM_cu5fe8.mov)
