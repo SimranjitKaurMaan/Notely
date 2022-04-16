@@ -9,7 +9,7 @@
 6. Trash & Archive notes
 
 
-
 Demo for Notely App ->
 https://user-images.githubusercontent.com/9392954/163686357-1c634e57-d1f0-44d1-ab12-a8fcdc6a0a99.mp4
+
 
