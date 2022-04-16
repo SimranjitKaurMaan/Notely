@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useNavigate , useLocation} from 'react-router';
 import { useAuth } from '../contexts/auth-context';
 import { signupUser } from '../utils/requestUtils/AuthRequestUtils';
-import { FormControl, InputLabel, Input, Radio, FormControlLabel, Button } from '@mui/material';
+import { FormControl, InputLabel, Input, Button } from '@mui/material';
 
 
 export const SignUp = () => {
