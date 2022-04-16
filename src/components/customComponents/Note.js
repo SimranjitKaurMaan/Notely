@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import dayjs from "dayjs";
 import { Card, CardHeader, CardContent, CardActions, Typography, IconButton, Chip, Stack } from "@mui/material";
@@ -21,7 +21,6 @@ export function Note({note}) {
 
     const showDeleteToast = () => toast.info("Note is deleted.");
     return (<>
-        <ToastContainer/>
         <Card variant="outlined" sx={{...NotelyTheme.card.containerStyle, bgcolor: `${note.color}` }} onClick={() => setNote(note)}>
             <CardHeader sx={{...NotelyTheme.card.headerStyle}}
                 action={
