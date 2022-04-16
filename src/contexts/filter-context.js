@@ -18,7 +18,11 @@ export const FilterProvider = ({children}) => {
         dispatch({type: 'FILTER_BY_LABEL', payload: {label, notes}});
     }
 
-    return (<filterContext.Provider value={{ filteredState: state, handleSortByDate , handleFilterByLabel }}>
+    const clearFilters = () => {
+        dispatch({type: 'CLEAR_FILTERS'});
+    }
+
+    return (<filterContext.Provider value={{ filteredState: state, handleSortByDate , handleFilterByLabel, clearFilters }}>
         {children}
     </filterContext.Provider>)
 };

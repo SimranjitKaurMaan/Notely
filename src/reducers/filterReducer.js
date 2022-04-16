@@ -26,6 +26,14 @@ export const filterReducer = (state, action) => {
               labels: newLabels
            }
           };
+        case "CLEAR_FILTERS" : {
+          return {
+            ...state,
+            filteredNotes: [],
+            sortBy: '',
+            labels: []
+          }
+        }  
        default: return state;     
     }
 }

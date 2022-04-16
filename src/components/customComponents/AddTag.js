@@ -1,11 +1,11 @@
 import { Box, Checkbox, FormControlLabel, Button, FormGroup} from "@mui/material";
 import { useNote } from "../../contexts/note-context";
 import { NotelyTheme } from "../../styles";
+import { labels } from "../../utils/Constants";
 
 export const AddTag = ({...props}) => {
     const {note , setNote} = useNote();
     const {setShowAddTags} = props;
-    const labels = ['Work','Health','Creativity','Teams','Exercise','Chores'];
     const handleLabelsChange = (label) => {
         note.tags.includes(label) ? setNote({...note, tags: note.tags.filter(tag => tag !== label)}):setNote({...note, tags: [...note.tags, label]})
     };

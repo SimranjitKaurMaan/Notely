@@ -1,0 +1,1 @@
+export const labels = ['Work','Health','Creativity','Teams','Exercise','Chores'];

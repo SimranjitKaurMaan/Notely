@@ -49,7 +49,6 @@ export const SignUp = () => {
                             <InputLabel htmlFor="password">Password</InputLabel>
                             <Input name="password" type="password" onChange={(event) => handleFormDetailsChange(event)}/>
                         </FormControl>
-                        <FormControlLabel value="accepted" control={<Radio />} label="I accept all Terms & Conditions" />
                         <Button variant="contained" style={{margin: 8}} onClick={signupHandler}>Create New Account</Button>
                         <Button variant="contained" style={{margin: 8}} onClick={testUserSignupHandler}>Create Test Account</Button>
                     </div>
