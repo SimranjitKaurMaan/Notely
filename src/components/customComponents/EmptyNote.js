@@ -1,4 +1,4 @@
-import { Card, CardContent, CardActions, Typography, IconButton, TextField } from "@mui/material";
+import { Card, CardContent, CardActions, Typography, IconButton, TextField , Button} from "@mui/material";
 import PushPinOutlinedIcon from '@mui/icons-material/PushPinOutlined';
 import PushPinIcon from '@mui/icons-material/PushPin';
 import LabelOutlinedIcon from '@mui/icons-material/LabelOutlined';
@@ -12,10 +12,9 @@ import { AddTag } from "./AddTag";
 import { useState } from "react";
 
 export function EmptyNote() {
-    const {note , setNote } = useNote();
+    const {note , setNote, saveNote } = useNote();
     const [showColorPallete, setShowColorPallete] = useState(false);
     const [showAddTags , setShowAddTags] = useState(false);
-
       
     const handleNoteDetailsChange = (event) => {
         const inputName = event.target.name;
@@ -47,6 +46,7 @@ export function EmptyNote() {
                     <IconButton aria-label="archive" onClick={() => {setNote({...note, state: 'ARCHIVED'});}}>
                         {note.state === 'ARCHIVED' ?  <ArchiveIcon/>: <ArchiveOutlinedIcon/>}
                     </IconButton>
+                    <Button variant="text" style={{color: '#686968'}} onClick={() => saveNote()}>Close</Button>
                 </CardActions>
             </Card>
             {showColorPallete && <ColorPallete setShowColorPallete={setShowColorPallete}/>}
