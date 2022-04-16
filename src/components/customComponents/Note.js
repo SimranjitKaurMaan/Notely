@@ -1,4 +1,6 @@
 import * as React from 'react';
+import { ToastContainer, toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 import dayjs from "dayjs";
 import { Card, CardHeader, CardContent, CardActions, Typography, IconButton, Chip, Stack } from "@mui/material";
 import PushPinOutlinedIcon from '@mui/icons-material/PushPinOutlined';
@@ -17,7 +19,9 @@ export function Note({note}) {
     const {deleteNote, setNote} = useNote();
     const {clearFilters} = useFilter();
 
-    return (
+    const showDeleteToast = () => toast.info("Note is deleted.");
+    return (<>
+        <ToastContainer/>
         <Card variant="outlined" sx={{...NotelyTheme.card.containerStyle, bgcolor: `${note.color}` }} onClick={() => setNote(note)}>
             <CardHeader sx={{...NotelyTheme.card.headerStyle}}
                 action={
@@ -48,10 +52,11 @@ export function Note({note}) {
             <IconButton aria-label="archive">
               {note.state === 'ARCHIVED' ? <ArchiveIcon/> : <ArchiveOutlinedIcon/>}
             </IconButton>
-            <IconButton aria-label="delete" onClick={(event) => {clearFilters(); deleteNote(note); event.stopPropagation()}}>
+            <IconButton aria-label="delete" onClick={(event) => {showDeleteToast();clearFilters(); deleteNote(note); event.stopPropagation()}}>
             {note.state === 'DELETED' ? <DeleteIcon/> : <DeleteOutlinedIcon/>}
             </IconButton>
         </CardActions>
         </Card>
+        </>
     );
   }

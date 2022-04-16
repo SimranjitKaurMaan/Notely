@@ -7,6 +7,7 @@ import { useNote } from '../contexts/note-context';
 import { NotelyTheme } from '../styles';
 import { Navbar, SearchBar, EmptyNote, Note } from './customComponents';
 
+
 export const Home = () => {
     const {notes, saveNote } = useNote();
     const {filteredState, clearFilters } = useFilter();
@@ -15,6 +16,7 @@ export const Home = () => {
     const displayNotes = filteredState ? filteredState.filteredNotes.length===0 ? allNotes : filteredState.filteredNotes : allNotes;
     const pinnedNotes = displayNotes && displayNotes.filter(note => note.pinned);
     const nonPinnedNotes = displayNotes && displayNotes.filter(note => !note.pinned);
+
 
     return <>
         <div className="wrapper">
